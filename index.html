@@ -3,12 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Cement Products LLC - Ready Mix & Blocks Oman</title>
+<title>Elite Cement Products LLC</title>
 <style>
-body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f5f5f5;color:#333}
-header{background:#003366;color:white;padding:15px 20px;text-align:center}
-header h1{margin:0;font-size:22px}
-header p{margin:5px 0 0;font-size:14px}
-.hero{background:#FF9900;color:white;text-align:center;padding:40px 20px}
-.hero h2{margin:0;font-size:24px}
-.btn{background:#003366;color:white
+body{margin:0;font-family:Arial;background:#f5f5f5}
+header{background:#003366;color:white;padding:15px;text-align:center}
+.hero{background:#FF9900;color:white;text-align:center;padding:40px}
+.btn{background:#003366;color:white;padding:12px 25px;border-radius:5px;text-decoration:none}
+section{padding:40px 20px}
+form{background:white;padding:20px;border-radius:10px;max-width:600px;margin:auto}
+input,select{width:100%;padding:10px;margin:8px 0;border:1px solid #ddd;border-radius:5px;box-sizing:border-box}
+.bank{background:#003366;color:white;text-align:center;padding:30px}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50px;text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Elite Cement Products LLC</h1>
+  <p>Ready Mix + Concrete Blocks</p>
+</header>
+
+<div class="hero">
+  <h2>Oman's Trusted Supplier</h2>
+  <a href="#order" class="btn">Get Quote</a>
+</div>
+
+<section id="order">
+  <h2 style="text-align:center; color:#003366;">Request Quote</h2>
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <label>Name</label><input name="name" required>
+    <label>Phone</label><input name="phone" required>
+    <label>Product</label>
+    <select name="product">
+      <option>Ready Mix</option>
+      <option>Blocks</option>
+    </select>
+    <button type="submit" class="btn" style="width:100%; background:#FF9900;">Send</button>
+  </form>
+</section>
+
+<section class="bank">
+  <h2>Contact & Bank</h2>
+  <p><b>Ikram Ullah</b></p>
+  <p><b>Mobile:</b> 00968 9469 8496</p>
+  <p><b>Bank:</b> Bank Muscat</p>
+</section>
+
+<a href="https://wa.me/96894698496" class="whatsapp">💬 WhatsApp</a>
+
+</body>
+</html>
