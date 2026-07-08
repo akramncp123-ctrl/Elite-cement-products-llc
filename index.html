@@ -594,18 +594,18 @@
         <div class="info-line"><span class="k">Email</span><span>akramncp123@gmail.com</span></div>
         <div class="info-line"><span class="k">Hours</span><span>Mon–Fri 6:00 AM – 4:30 PM</span></div>
       </div>
-      <form class="reveal" onsubmit="event.preventDefault(); document.getElementById('formStatus').textContent='Request received — we\'ll follow up shortly.';">
+      <form class="reveal" id="quoteForm" action="https://formspree.io/f/xpqgekyg" method="POST">
         <div class="form-row">
-          <div><label for="fname">Name</label><input id="fname" type="text" required></div>
-          <div><label for="fcompany">Company</label><input id="fcompany" type="text"></div>
+          <div><label for="fname">Name</label><input id="fname" name="Name" type="text" required></div>
+          <div><label for="fcompany">Company</label><input id="fcompany" name="Company" type="text"></div>
         </div>
         <div class="form-row">
-          <div><label for="femail">Email</label><input id="femail" type="email" required></div>
-          <div><label for="fphone">Phone</label><input id="fphone" type="tel"></div>
+          <div><label for="femail">Email</label><input id="femail" name="Email" type="email" required></div>
+          <div><label for="fphone">Phone</label><input id="fphone" name="Phone" type="tel"></div>
         </div>
         <div>
           <label for="fproduct">Product Interest</label>
-          <select id="fproduct">
+          <select id="fproduct" name="Product Interest">
             <option>Hollow Block — 8" (7.5 N/mm²)</option>
             <option>Solid Block — 8" (10.5 N/mm²)</option>
             <option>Hollow Block — 4" (5.0 N/mm²)</option>
@@ -617,10 +617,10 @@
         </div>
         <div>
           <label for="fmsg">Quantity &amp; project details</label>
-          <textarea id="fmsg" placeholder="e.g. 1,200 standard CMU, delivery to job site by Aug 20"></textarea>
+          <textarea id="fmsg" name="Project Details" placeholder="e.g. 1,200 standard CMU, delivery to job site by Aug 20"></textarea>
         </div>
         <div class="form-submit">
-          <button type="submit" class="btn">Submit Request</button>
+          <button type="submit" class="btn" id="quoteSubmitBtn">Submit Request</button>
           <div class="form-note" id="formStatus">We typically respond within one business day.</div>
         </div>
       </form>
@@ -679,6 +679,34 @@
     }
     stack.appendChild(row);
   }
+
+  // quote form -> Formspree
+  const quoteForm = document.getElementById('quoteForm');
+  const formStatus = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('quoteSubmitBtn');
+  quoteForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    formStatus.textContent = '';
+    fetch(quoteForm.action, {
+      method: 'POST',
+      body: new FormData(quoteForm),
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if(response.ok){
+        formStatus.textContent = 'Request received — we\'ll follow up shortly.';
+        quoteForm.reset();
+      } else {
+        formStatus.textContent = 'Something went wrong — please email or call us directly.';
+      }
+    }).catch(() => {
+      formStatus.textContent = 'Something went wrong — please email or call us directly.';
+    }).finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Request';
+    });
+  });
 
   // scroll reveal
   const io = new IntersectionObserver((entries)=>{
