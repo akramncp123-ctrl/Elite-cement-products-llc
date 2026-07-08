@@ -1,719 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Cement Products LLC — Precision-Cast Concrete</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --charcoal:#28251F;
-    --concrete:#A8A296;
-    --concrete-light:#D9D4C7;
-    --limestone:#EFEAE0;
-    --oxide:#A83F27;
-    --oxide-dark:#7E2E1B;
-    --steel:#4A5560;
-    --line:rgba(40,37,31,0.14);
-    --radius:2px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Inter',sans-serif;
-    background:var(--limestone);
-    color:var(--charcoal);
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:inherit;text-decoration:none;}
-  img,svg{display:block;max-width:100%;}
-  .mono{font-family:'JetBrains Mono',monospace;}
-  .slab{font-family:'Roboto Slab',serif;}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
-  :focus-visible{outline:3px solid var(--oxide);outline-offset:3px;}
-
-  /* ===== texture ===== */
-  .grain{
-    position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0.05;
-    background-image:radial-gradient(circle, #000 1px, transparent 1px);
-    background-size:3px 3px;
-    mix-blend-mode:multiply;
-  }
-
-  /* ===== header ===== */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:var(--limestone);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:18px 0;
-  }
-  .brand{display:flex;align-items:center;gap:12px;}
-  .brand-mark{
-    width:34px;height:34px;background:var(--oxide);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--limestone);font-family:'Roboto Slab',serif;font-weight:900;font-size:16px;
-    flex-shrink:0;
-  }
-  .brand-name{font-family:'Roboto Slab',serif;font-weight:700;font-size:16px;letter-spacing:0.02em;line-height:1.15;}
-  .brand-name span{display:block;font-family:'JetBrains Mono',monospace;font-weight:400;font-size:10.5px;letter-spacing:0.14em;color:var(--steel);text-transform:uppercase;margin-top:2px;}
-  nav.links{display:flex;gap:36px;align-items:center;}
-  nav.links a{
-    font-size:13.5px;font-weight:500;letter-spacing:0.02em;
-    color:var(--charcoal);position:relative;padding:6px 0;
-  }
-  nav.links a::after{
-    content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--oxide);
-    transition:width 0.25s ease;
-  }
-  nav.links a:hover::after{width:100%;}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;
-    background:var(--charcoal);color:var(--limestone);
-    padding:11px 20px;font-size:13px;font-weight:600;letter-spacing:0.02em;
-    border:1px solid var(--charcoal);cursor:pointer;
-    transition:background 0.2s ease, color 0.2s ease;
-  }
-  .btn:hover{background:var(--oxide);border-color:var(--oxide);}
-  .btn-outline{
-    background:transparent;color:var(--charcoal);border:1px solid var(--charcoal);
-  }
-  .btn-outline:hover{background:var(--charcoal);color:var(--limestone);}
-  .menu-toggle{display:none;background:none;border:none;cursor:pointer;}
-
-  /* ===== hero ===== */
-  .hero{
-    position:relative;overflow:hidden;
-    border-bottom:1px solid var(--line);
-  }
-  .hero-grid{
-    display:grid;grid-template-columns:1.1fr 0.9fr;align-items:stretch;
-  }
-  .hero-copy{padding:96px 0 80px;position:relative;}
-  .eyebrow{
-    display:flex;align-items:center;gap:10px;
-    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;
-    color:var(--oxide);text-transform:uppercase;margin-bottom:22px;
-  }
-  .eyebrow::before{content:"";width:22px;height:2px;background:var(--oxide);}
-  h1.hero-h{
-    font-family:'Roboto Slab',serif;font-weight:900;
-    font-size:clamp(40px, 5.4vw, 68px);line-height:0.98;letter-spacing:-0.01em;
-    max-width:11ch;
-  }
-  .hero-h em{font-style:normal;color:var(--oxide);}
-  .hero-sub{
-    margin-top:26px;font-size:17px;max-width:44ch;color:#4a463d;
-  }
-  .hero-cta{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap;}
-
-  /* block stack visual */
-  .stack{
-    position:relative;
-    background:
-      repeating-linear-gradient(180deg, var(--concrete-light) 0 62px, var(--charcoal) 62px 64px),
-      var(--concrete-light);
-    border-left:1px solid var(--line);
-  }
-  .stack-inner{position:relative;height:100%;overflow:hidden;}
-  .block-row{
-    display:flex;height:62px;
-    border-bottom:2px solid var(--charcoal);
-  }
-  .block-row:nth-child(even){padding-left:38px;}
-  .block{
-    flex:1;border-right:2px solid var(--charcoal);
-    background:var(--concrete);
-    position:relative;
-  }
-  .block:nth-child(3n+1){background:#B3AD9F;}
-  .block:nth-child(5n+2){background:#9C968A;}
-  .dim-callout{
-    position:absolute;right:28px;top:34px;
-    background:var(--limestone);border:1px solid var(--charcoal);
-    padding:14px 18px;font-family:'JetBrains Mono',monospace;font-size:12px;
-    box-shadow:6px 6px 0 var(--oxide);
-    max-width:200px;
-  }
-  .dim-callout .dt{color:var(--steel);text-transform:uppercase;letter-spacing:0.08em;font-size:10px;margin-bottom:6px;}
-  .dim-callout .dv{font-weight:700;font-size:14px;color:var(--charcoal);margin-bottom:3px;}
-
-  /* ===== marquee stats strip ===== */
-  .stats-strip{
-    background:var(--charcoal);color:var(--limestone);
-    border-bottom:1px solid var(--line);
-  }
-  .stats-row{
-    display:grid;grid-template-columns:repeat(4,1fr);
-  }
-  .stat{
-    padding:30px 32px;border-right:1px solid rgba(239,234,224,0.14);
-  }
-  .stat:last-child{border-right:none;}
-  .stat .num{font-family:'Roboto Slab',serif;font-weight:900;font-size:32px;color:var(--limestone);}
-  .stat .num span{color:var(--oxide);}
-  .stat .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#B7B2A4;margin-top:6px;}
-
-  /* ===== section shared ===== */
-  section{padding:96px 0;}
-  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:52px;flex-wrap:wrap;}
-  .sec-eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:var(--oxide);text-transform:uppercase;margin-bottom:14px;}
-  h2.sec-h{font-family:'Roboto Slab',serif;font-weight:900;font-size:clamp(28px,3.4vw,42px);letter-spacing:-0.01em;max-width:16ch;}
-  .sec-note{max-width:34ch;color:#5a564c;font-size:14.5px;padding-bottom:4px;}
-
-  /* ===== products ===== */
-  .products{border-bottom:1px solid var(--line);}
-  .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
-  .prod-card{
-    background:var(--limestone);padding:34px 26px;
-    transition:background 0.2s ease;position:relative;
-  }
-  .prod-card:hover{background:#E5E0D3;}
-  .prod-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--oxide);margin-bottom:22px;}
-  .prod-icon{width:44px;height:44px;margin-bottom:22px;}
-  .prod-title{font-family:'Roboto Slab',serif;font-weight:700;font-size:19px;margin-bottom:10px;}
-  .prod-desc{font-size:13.8px;color:#5a564c;margin-bottom:18px;}
-  .prod-spec{
-    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--steel);
-    border-top:1px dashed var(--concrete);padding-top:12px;
-  }
-
-  /* ===== block dimension spec table ===== */
-  .block-specs{margin-top:56px;padding-top:48px;border-top:1px solid var(--line);}
-  .bs-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:28px;}
-  .bs-h{font-family:'Roboto Slab',serif;font-weight:700;font-size:22px;}
-  .bs-table{border:1px solid var(--charcoal);}
-  .bs-row{
-    display:grid;grid-template-columns:1.3fr 1.3fr 0.8fr 1.2fr 1.6fr;
-    border-bottom:1px solid var(--line);
-  }
-  .bs-row:last-child{border-bottom:none;}
-  .bs-row span{padding:15px 18px;font-size:13.5px;display:flex;align-items:center;color:#3a372f;border-right:1px dashed var(--line);}
-  .bs-row span:last-child{border-right:none;}
-  .bs-row-head{background:var(--charcoal);}
-  .bs-row-head span{
-    color:var(--limestone);font-family:'JetBrains Mono',monospace;font-size:10.5px;
-    text-transform:uppercase;letter-spacing:0.08em;border-right:1px solid rgba(239,234,224,0.14);
-  }
-  .bs-name{font-weight:700;color:var(--charcoal);}
-  .bs-row:hover:not(.bs-row-head){background:#E5E0D3;}
-  .bs-foot{font-size:11px;color:var(--steel);margin-top:12px;letter-spacing:0.02em;}
-
-  @media (max-width:900px){
-    .bs-row{grid-template-columns:1fr;}
-    .bs-row span{border-right:none;border-bottom:1px dashed var(--line);}
-    .bs-row span:last-child{border-bottom:none;}
-    .bs-row-head{display:none;}
-    .bs-row:not(.bs-row-head){padding:10px 0;}
-    .bs-row:not(.bs-row-head) span::before{
-      content:attr(data-label);display:block;font-family:'JetBrains Mono',monospace;
-      font-size:9.5px;text-transform:uppercase;color:var(--oxide);letter-spacing:0.08em;margin-bottom:4px;
-    }
-  }
-
-  /* ===== process ===== */
-  .process{background:var(--concrete-light);border-bottom:1px solid var(--line);}
-  .process-track{position:relative;}
-  .process-track::before{
-    content:"";position:absolute;top:22px;left:0;right:0;height:1px;background:var(--charcoal);opacity:0.25;
-  }
-  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;position:relative;}
-  .step-dot{
-    width:44px;height:44px;border:2px solid var(--charcoal);background:var(--limestone);
-    display:flex;align-items:center;justify-content:center;
-    font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;
-    margin-bottom:22px;position:relative;z-index:2;
-  }
-  .step-title{font-family:'Roboto Slab',serif;font-weight:700;font-size:16px;margin-bottom:8px;}
-  .step-desc{font-size:13px;color:#5a564c;}
-
-  /* ===== batch ticket / spec sheet signature ===== */
-  .ticket-section{border-bottom:1px solid var(--line);}
-  .ticket-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
-  .ticket{
-    background:var(--limestone);border:1.5px solid var(--charcoal);
-    box-shadow:10px 10px 0 var(--oxide);
-    padding:0;
-  }
-  .ticket-head{
-    display:flex;justify-content:space-between;align-items:center;
-    padding:18px 22px;border-bottom:1.5px dashed var(--charcoal);
-  }
-  .ticket-head .tt{font-family:'Roboto Slab',serif;font-weight:900;font-size:15px;letter-spacing:0.02em;}
-  .ticket-head .tn{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--oxide);}
-  .ticket-body{padding:22px;}
-  .ticket-row{
-    display:flex;justify-content:space-between;padding:11px 0;
-    border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12.5px;
-  }
-  .ticket-row:last-child{border-bottom:none;}
-  .ticket-row .k{color:var(--steel);}
-  .ticket-row .v{font-weight:700;color:var(--charcoal);}
-  .ticket-stamp{
-    margin-top:20px;padding-top:18px;border-top:1.5px dashed var(--charcoal);
-    display:flex;align-items:center;gap:10px;
-  }
-  .stamp-badge{
-    border:2px solid var(--oxide);color:var(--oxide);
-    font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11px;
-    padding:6px 12px;letter-spacing:0.08em;transform:rotate(-3deg);
-  }
-  .ticket-copy .sec-eyebrow{margin-bottom:14px;}
-  .ticket-copy h2{margin-bottom:18px;}
-  .ticket-copy p{color:#4a463d;font-size:15px;margin-bottom:16px;max-width:42ch;}
-  .check-list{list-style:none;margin-top:24px;}
-  .check-list li{
-    display:flex;gap:12px;align-items:flex-start;font-size:14px;padding:8px 0;color:#3a372f;
-  }
-  .check-list li::before{content:"—";color:var(--oxide);font-weight:700;flex-shrink:0;}
-
-  /* ===== gallery strip ===== */
-  .gallery{background:var(--charcoal);border-bottom:1px solid var(--line);}
-  .gallery .wrap{padding-top:0;padding-bottom:0;}
-  .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);}
-  .gal-cell{
-    aspect-ratio:4/3;position:relative;overflow:hidden;
-    border-right:1px solid rgba(239,234,224,0.1);
-  }
-  .gal-cell:last-child{border-right:none;}
-  .gal-cell img{width:100%;height:100%;object-fit:cover;filter:grayscale(35%) contrast(1.05);transition:transform 0.5s ease, filter 0.5s ease;}
-  .gal-cell:hover img{transform:scale(1.06);filter:grayscale(0%) contrast(1.05);}
-  .gal-label{
-    position:absolute;bottom:0;left:0;right:0;padding:16px 18px;
-    background:linear-gradient(180deg, transparent, rgba(0,0,0,0.75));
-    color:var(--limestone);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.04em;
-  }
-
-  /* ===== quote form ===== */
-  .quote{border-bottom:1px solid var(--line);}
-  .quote-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;}
-  .quote-info h2{margin-bottom:20px;}
-  .quote-info p{color:#4a463d;font-size:15px;max-width:38ch;margin-bottom:28px;}
-  .info-line{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line);font-size:14px;}
-  .info-line:last-child{border-bottom:1px solid var(--line);}
-  .info-line .k{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--oxide);width:110px;flex-shrink:0;padding-top:2px;}
-  form{display:grid;gap:18px;}
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-  label{
-    display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;text-transform:uppercase;
-    letter-spacing:0.08em;color:var(--steel);margin-bottom:8px;
-  }
-  input,select,textarea{
-    width:100%;background:var(--limestone);border:1px solid var(--charcoal);
-    padding:12px 14px;font-family:'Inter',sans-serif;font-size:14px;color:var(--charcoal);
-  }
-  textarea{resize:vertical;min-height:100px;}
-  input:focus,select:focus,textarea:focus{outline:2px solid var(--oxide);outline-offset:2px;}
-  .form-submit{margin-top:6px;}
-  .form-note{font-size:12px;color:var(--steel);margin-top:2px;}
-
-  /* ===== footer ===== */
-  footer{background:var(--charcoal);color:var(--limestone);padding:64px 0 28px;}
-  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:56px;}
-  .foot-brand .brand-name{color:var(--limestone);}
-  .foot-brand p{margin-top:16px;font-size:13.5px;color:#ADA894;max-width:32ch;}
-  .foot-col h4{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--oxide);margin-bottom:16px;}
-  .foot-col a,.foot-col p{display:block;font-size:13.5px;color:#C9C4B4;padding:5px 0;}
-  .foot-col a:hover{color:var(--limestone);}
-  .foot-bottom{
-    border-top:1px solid rgba(239,234,224,0.14);padding-top:24px;
-    display:flex;justify-content:space-between;font-size:12px;color:#8B876F;flex-wrap:wrap;gap:10px;
-  }
-
-  /* ===== reveal on scroll ===== */
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.7s ease, transform 0.7s ease;}
-  .reveal.in{opacity:1;transform:translateY(0);}
-
-  @media (prefers-reduced-motion: reduce){
-    .reveal{opacity:1;transform:none;transition:none;}
-    .gal-cell img{transition:none;}
-    html{scroll-behavior:auto;}
-  }
-
-  /* ===== responsive ===== */
-  @media (max-width:980px){
-    .hero-grid{grid-template-columns:1fr;}
-    .stack{min-height:340px;border-left:none;border-top:1px solid var(--line);}
-    .stats-row{grid-template-columns:repeat(2,1fr);}
-    .stat:nth-child(2){border-right:none;}
-    .prod-grid{grid-template-columns:repeat(2,1fr);}
-    .steps{grid-template-columns:repeat(1,1fr);gap:36px;}
-    .process-track::before{display:none;}
-    .ticket-grid,.quote-grid{grid-template-columns:1fr;}
-    .gallery-grid{grid-template-columns:1fr;}
-    .foot-grid{grid-template-columns:1fr 1fr;}
-    nav.links{display:none;}
-    .menu-toggle{display:block;}
-  }
-  @media (max-width:560px){
-    .form-row{grid-template-columns:1fr;}
-    .foot-grid{grid-template-columns:1fr;}
-    .dim-callout{position:static;margin:20px;box-shadow:4px 4px 0 var(--oxide);}
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elite Cement Products LLC - Ready Mix Concrete Oman</title>
+  <style>
+    body {font-family: Arial, sans-serif; margin:0; padding:0; color:#333;}
+    header {background:#003366; color:white; padding:20px; text-align:center;}
+    header h1 {margin:0;}
+    .hero {background:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12') center/cover; color:white; text-align:center; padding:80px 20px;}
+    .hero h2 {font-size:36px; margin:0;}
+    .btn {background:#FF9900; color:white; padding:15px 30px; text-decoration:none; border-radius:5px; font-weight:bold;}
+  </style>
 </head>
 <body>
-<div class="grain"></div>
 
 <header>
-  <div class="wrap nav">
-    <div class="brand">
-      <div class="brand-mark">EC</div>
-      <div class="brand-name">Elite Cement Products<span>LLC · Since 2008</span></div>
-    </div>
-    <nav class="links">
-      <a href="#products">Products</a>
-      <a href="#process">Process</a>
-      <a href="#specs">Specs &amp; QC</a>
-      <a href="#gallery">Projects</a>
-      <a href="#quote" class="btn">Request a Quote</a>
-    </nav>
-    <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('nav.links').classList.toggle('open')">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="#28251F" stroke-width="2"/></svg>
-    </button>
-  </div>
+  <h1>Elite Cement Products LLC</h1>
+  <p>Premium Ready Mix Concrete | OPC & SRC | C15 to C60</p>
 </header>
 
-<section class="hero" style="padding:0;">
-  <div class="wrap" style="padding:0;max-width:none;">
-    <div class="hero-grid">
-      <div class="hero-copy wrap">
-        <div class="eyebrow">Batched · Cast · Cured on-site</div>
-        <h1 class="hero-h">Concrete that carries the <em>load</em>, every pour.</h1>
-        <p class="hero-sub">Elite Cement Products LLC batches, casts, and delivers CMU block, pavers, and precast concrete to contractors who can't afford a weak pour. Consistent mix, tested strength, on-time trucks.</p>
-        <div class="hero-cta">
-          <a href="#quote" class="btn">Request a Quote</a>
-          <a href="#products" class="btn btn-outline">View Product Line</a>
-        </div>
-      </div>
-      <div class="stack">
-        <div class="stack-inner" id="blockStack"></div>
-        <div class="dim-callout">
-          <div class="dt">Standard CMU — Oman Std.</div>
-          <div class="dv">8 × 8 × 16 IN</div>
-          <div class="dv">7.5 N/mm² MIN</div>
-        </div>
-      </div>
-    </div>
+<section class="hero">
+  <h2>Oman’s Trusted Ready-Mix Supplier</h2>
+  <p>Fast Delivery | High Quality | Competitive Price</p>
+  <br>
+  <a href="#order" class="btn">Get Quote Now</a>
+</section>
+
+<!-- Order Form -->
+<section id="order" style="padding:50px 20px; background:#f8f9fa;">
+  <div style="max-width:700px; margin:auto; background:white; padding:30px; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.1);">
+    <h2 style="text-align:center; color:#003366;">Request a Quote</h2>
+    <p style="text-align:center; color:#555; margin-bottom:30px;">We reply within 1 hour</p>
+
+    <form action="https://formspree.io/f/xpqgekyg" method="POST">
+      <input type="hidden" name="_subject" value="New Quote Request - Elite Cement LLC">
+
+      <label><b>Full Name *</b></label><br>
+      <input type="text" name="name" required style="width:100%; padding:12px; margin:8px 0 15px 0; border:1px solid #ccc; border-radius:5px;"><br>
+
+      <label><b>Phone / WhatsApp *</b></label><br>
+      <input type="tel" name="phone" required style="width:100%; padding:12px; margin:8px 0 15px 0; border:1px solid #ccc; border-radius:5px;"><br>
+
+      <label><b>Project Location in Oman *</b></label><br>
+      <input type="text" name="location" required placeholder="e.g. Muscat" style="width:100%; padding:12px; margin:8px 0 15px 0; border:1px solid #ccc; border-radius:5px;"><br>
+
+      <label><b>Cement Type *</b></label><br>
+      <select name="cement_type" required style="width:100%; padding:12px; margin:8px 0 15px 0; border:1px solid #ccc; border-radius:5px;">
+        <option value="">-- Select --</option>
+        <option value="OPC">OPC - Ordinary Portland Cement</option>
+        <option value="SRC">SRC - Sulphate Resistant Cement</option>
+        <option value="Both">Both OPC & SRC</option>
+      </select><br>
+
+      <label><b>Ready-Mix Grade *</b></label><br>
+      <select name="grade" required style="width:100%; padding:12px; margin:8px 0 15px 0; border:1px solid #ccc; border-radius:5px;">
+        <option value="">-- Select Grade C15 to C60 --</option>
+        <option value="C15">C15</option><option value="C20">C20</option><option value="C25">C25</option>
+        <option value="C30">C30</option><option value="C35">C35</option><option value="C40">C40</option>
+        <option value="C45">C45</option><option value="C50">C50</option><option value="C55">C55</option><option value="C60">C60</option>
+      </select><br>
+
+      <label><b>Quantity in m³ *</b></label><br>
+      <input type="number" name="quantity" required style="width:100%; padding:12px; margin:8px 0 15px 0; border:1px solid #ccc; border-radius:5px;"><br>
+
+      <label><b>Delivery Date *</b></label><br>
+      <input type="date" name="date" required style="width:100%; padding:12px; margin:8px 0 15px 0; border:1px solid #ccc; border-radius:5px;"><br>
+
+      <button type="submit" style="background:#003366; color:white; padding:15px; border:none; width:100%; font-size:18px; font-weight:bold; border-radius:5px;">Send Quote Request</button>
+    </form>
   </div>
 </section>
 
-<div class="stats-strip">
-  <div class="wrap" style="padding:0;max-width:1180px;">
-    <div class="stats-row">
-      <div class="stat"><div class="num"><span>18</span>+</div><div class="lbl">Years Producing</div></div>
-      <div class="stat"><div class="num">5,000<span>psi</span></div><div class="lbl">Max Compressive Strength</div></div>
-      <div class="stat"><div class="num">±1/16<span>in</span></div><div class="lbl">Dimensional Tolerance</div></div>
-      <div class="stat"><div class="num">24<span>hr</span></div><div class="lbl">Dispatch on Stock Items</div></div>
-    </div>
-  </div>
-</div>
-
-<section class="products" id="products">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div>
-        <div class="sec-eyebrow">Product Line</div>
-        <h2 class="sec-h">Four product families, one batch plant.</h2>
-      </div>
-      <p class="sec-note">Every SKU is cast from the same tested mix design and cured under the same roof — so specs stay consistent from the first pallet to the thousandth.</p>
-    </div>
-  </div>
-  <div class="wrap" style="padding:0 32px;">
-    <div class="prod-grid reveal">
-      <div class="prod-card">
-        <div class="prod-num">01 / CMU</div>
-        <svg class="prod-icon" viewBox="0 0 44 44" fill="none"><rect x="4" y="14" width="16" height="16" stroke="#A83F27" stroke-width="2"/><rect x="24" y="14" width="16" height="16" stroke="#A83F27" stroke-width="2"/><circle cx="12" cy="22" r="2.4" fill="#A83F27"/><circle cx="32" cy="22" r="2.4" fill="#A83F27"/></svg>
-        <div class="prod-title">Concrete Masonry Units</div>
-        <div class="prod-desc">Standard and structural block for load-bearing walls, foundations, and fire-rated assemblies.</div>
-        <div class="prod-spec">Oman Std. · 7.5–10.5 N/mm²</div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-num">02 / PAVERS</div>
-        <svg class="prod-icon" viewBox="0 0 44 44" fill="none"><path d="M4 40l10-30M18 40l10-30M32 40l8-24" stroke="#A83F27" stroke-width="2" stroke-linecap="square"/></svg>
-        <div class="prod-title">Interlocking Pavers</div>
-        <div class="prod-desc">Driveway, walkway, and patio pavers in standard and permeable finishes for hardscape contractors.</div>
-        <div class="prod-spec">ICPI-compliant · 8,000 PSI</div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-num">03 / PRECAST</div>
-        <svg class="prod-icon" viewBox="0 0 44 44" fill="none"><rect x="6" y="8" width="32" height="10" stroke="#A83F27" stroke-width="2"/><rect x="10" y="24" width="24" height="12" stroke="#A83F27" stroke-width="2"/></svg>
-        <div class="prod-title">Precast Elements</div>
-        <div class="prod-desc">Lintels, sills, retaining wall blocks, and custom precast to architect and structural spec.</div>
-        <div class="prod-spec">Custom mix · Shop drawings incl.</div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-num">04 / READY-MIX</div>
-        <svg class="prod-icon" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="15" stroke="#A83F27" stroke-width="2"/><path d="M22 12v10l7 5" stroke="#A83F27" stroke-width="2"/></svg>
-        <div class="prod-title">Ready-Mix Concrete</div>
-        <div class="prod-desc">All grades supplied to order — M15 through M40 — for slabs, footings, and structural pours.</div>
-        <div class="prod-spec">M15 · M20 · M25 · M30 · M35 · M40</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <div class="block-specs reveal">
-      <div class="bs-head">
-        <div>
-          <div class="sec-eyebrow">Block Dimensions</div>
-          <h3 class="bs-h">Three core sizes, stocked and ready.</h3>
-        </div>
-        <p class="sec-note">Custom sizes cast to order on request — ask for a mix design and lead time.</p>
-      </div>
-      <div class="bs-table">
-        <div class="bs-row bs-row-head">
-          <span>Block Type</span>
-          <span>Dimensions (L × W × H)</span>
-          <span>Core</span>
-          <span>Compressive Strength</span>
-          <span>Typical Use</span>
-        </div>
-        <div class="bs-row">
-          <span class="bs-name" data-label="Block Type">Hollow Block — 8"</span>
-          <span class="mono" data-label="Dimensions">16 × 8 × 8 in</span>
-          <span data-label="Core">Hollow</span>
-          <span class="mono" data-label="Strength">7.5 N/mm²</span>
-          <span data-label="Typical Use">Load-bearing exterior walls</span>
-        </div>
-        <div class="bs-row">
-          <span class="bs-name" data-label="Block Type">Solid Block — 8"</span>
-          <span class="mono" data-label="Dimensions">16 × 8 × 8 in</span>
-          <span data-label="Core">Solid</span>
-          <span class="mono" data-label="Strength">10.5 N/mm²</span>
-          <span data-label="Typical Use">Foundations, retaining walls</span>
-        </div>
-        <div class="bs-row">
-          <span class="bs-name" data-label="Block Type">Hollow Block — 4"</span>
-          <span class="mono" data-label="Dimensions">16 × 4 × 8 in</span>
-          <span data-label="Core">Hollow</span>
-          <span class="mono" data-label="Strength">5.0 N/mm²</span>
-          <span data-label="Typical Use">Partition &amp; non-load-bearing walls</span>
-        </div>
-        <div class="bs-foot mono">Tested to Oman Standard Specification for concrete masonry units.</div>
-      </div>
-    </div>
-  </div>
+<!-- Bank Details -->
+<section style="padding:40px 20px; background:#003366; color:white; text-align:center;">
+  <h2>Bank Details for Payment</h2>
+  <p><b>Company:</b> Elite Cement Products LLC</p>
+  <p><b>Bank:</b> [ADD YOUR BANK NAME]</p>
+  <p><b>Account:</b> [ADD ACCOUNT NUMBER]</p>
+  <p><b>IBAN:</b> [ADD IBAN]</p>
 </section>
 
-<section class="process" id="process">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div>
-        <div class="sec-eyebrow">How A Batch Moves</div>
-        <h2 class="sec-h">Five stages, tracked ticket to truck.</h2>
-      </div>
-      <p class="sec-note">Every batch is logged at each stage — the number on your ticket traces back to the raw materials that went into it.</p>
-    </div>
-    <div class="process-track reveal">
-      <div class="steps">
-        <div class="step"><div class="step-dot">01</div><div class="step-title">Batching</div><div class="step-desc">Aggregate, cement, and admixtures weighed to the mix design.</div></div>
-        <div class="step"><div class="step-dot">02</div><div class="step-title">Molding</div><div class="step-desc">Cast in steel forms under vibration for full compaction.</div></div>
-        <div class="step"><div class="step-dot">03</div><div class="step-title">Curing</div><div class="step-desc">Controlled humidity and temperature for 24–28 days.</div></div>
-        <div class="step"><div class="step-dot">04</div><div class="step-title">QC Testing</div><div class="step-desc">Compressive strength and dimensional checks per lot.</div></div>
-        <div class="step"><div class="step-dot">05</div><div class="step-title">Delivery</div><div class="step-desc">Palletized and trucked on a scheduled dispatch window.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- WhatsApp Button -->
+<a href="https://wa.me/968XXXXXXXX?text=Hello%20Elite%20Cement%2C%20I%20need%20a%20quote" 
+   target="_blank" 
+   style="position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px 20px; border-radius:50px; text-decoration:none; font-weight:bold; font-size:16px; z-index:999;">
+   💬 WhatsApp
+</a>
 
-<section class="ticket-section" id="specs">
-  <div class="wrap">
-    <div class="ticket-grid">
-      <div class="ticket-copy reveal">
-        <div class="sec-eyebrow">Specs &amp; QC</div>
-        <h2 class="sec-h">Every pallet ships with its own batch ticket.</h2>
-        <p>We test compressive strength on every production lot, not just at plant certification. If a load doesn't meet the mix design, it doesn't leave the yard.</p>
-        <ul class="check-list">
-          <li>ASTM C90 and C140 testing on masonry units</li>
-          <li>Third-party lab verification available on request</li>
-          <li>Lot numbers traceable to raw material delivery</li>
-          <li>Mix designs available for engineer submittal packages</li>
-        </ul>
-      </div>
-      <div class="ticket reveal">
-        <div class="ticket-head">
-          <div class="tt">BATCH TICKET</div>
-          <div class="tn">NO. EC-240815</div>
-        </div>
-        <div class="ticket-body">
-          <div class="ticket-row"><span class="k">PRODUCT</span><span class="v">8×8×16 STD CMU</span></div>
-          <div class="ticket-row"><span class="k">MIX DESIGN</span><span class="v">MD-102A</span></div>
-          <div class="ticket-row"><span class="k">28-DAY STRENGTH</span><span class="v">8.1 N/mm²</span></div>
-          <div class="ticket-row"><span class="k">SLUMP</span><span class="v">2.25 IN</span></div>
-          <div class="ticket-row"><span class="k">QUANTITY</span><span class="v">1,240 UNITS</span></div>
-          <div class="ticket-row"><span class="k">TESTED BY</span><span class="v">QC — R. MOSS</span></div>
-          <div class="ticket-stamp">
-            <div class="stamp-badge">PASS</div>
-            <span class="mono" style="font-size:11px;color:var(--steel);">Cleared for dispatch</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="gallery" id="gallery">
-  <div class="wrap">
-    <div class="sec-head reveal" style="border:none;">
-      <div>
-        <div class="sec-eyebrow" style="color:#E8A98E;">Recent Work</div>
-        <h2 class="sec-h" style="color:var(--limestone);">From the yard to the job site.</h2>
-      </div>
-    </div>
-  </div>
-  <div class="gallery-grid reveal">
-    <div class="gal-cell">
-      <img src="https://images.unsplash.com/photo-1541976590-713941681591?w=800&q=80" alt="Stacked concrete masonry units">
-      <div class="gal-label">Retaining Wall — Block Supply, 12,000 units</div>
-    </div>
-    <div class="gal-cell">
-      <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&q=80" alt="Concrete paver installation">
-      <div class="gal-label">Municipal Plaza — Permeable Pavers</div>
-    </div>
-    <div class="gal-cell">
-      <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80" alt="Precast concrete production">
-      <div class="gal-label">Warehouse Foundation — Precast Lintels</div>
-    </div>
-  </div>
-</section>
-
-<section class="quote" id="quote">
-  <div class="wrap">
-    <div class="quote-grid">
-      <div class="quote-info reveal">
-        <div class="sec-eyebrow">Request a Quote</div>
-        <h2 class="sec-h">Tell us what you're pouring.</h2>
-        <p>Send quantities and a delivery window and we'll get pricing back same business day for standard product.</p>
-        <div class="info-line"><span class="k">Yard</span><span>Rusayl Industrial City, Muscat, Sultanate of Oman</span></div>
-        <div class="info-line"><span class="k">Phone</span><span>0096894698496</span></div>
-        <div class="info-line"><span class="k">Email</span><span>akramncp123@gmail.com</span></div>
-        <div class="info-line"><span class="k">Hours</span><span>Mon–Fri 6:00 AM – 4:30 PM</span></div>
-      </div>
-      <form class="reveal" id="quoteForm" action="https://formspree.io/f/xpqgekyg" method="POST">
-        <div class="form-row">
-          <div><label for="fname">Name</label><input id="fname" name="Name" type="text" required></div>
-          <div><label for="fcompany">Company</label><input id="fcompany" name="Company" type="text"></div>
-        </div>
-        <div class="form-row">
-          <div><label for="femail">Email</label><input id="femail" name="Email" type="email" required></div>
-          <div><label for="fphone">Phone</label><input id="fphone" name="Phone" type="tel"></div>
-        </div>
-        <div>
-          <label for="fproduct">Product Interest</label>
-          <select id="fproduct" name="Product Interest">
-            <option>Hollow Block — 8" (7.5 N/mm²)</option>
-            <option>Solid Block — 8" (10.5 N/mm²)</option>
-            <option>Hollow Block — 4" (5.0 N/mm²)</option>
-            <option>Interlocking Pavers</option>
-            <option>Precast Elements</option>
-            <option>Ready-Mix Concrete — All Types (M15–M40)</option>
-            <option>Not sure yet</option>
-          </select>
-        </div>
-        <div>
-          <label for="fmsg">Quantity &amp; project details</label>
-          <textarea id="fmsg" name="Project Details" placeholder="e.g. 1,200 standard CMU, delivery to job site by Aug 20"></textarea>
-        </div>
-        <div class="form-submit">
-          <button type="submit" class="btn" id="quoteSubmitBtn">Submit Request</button>
-          <div class="form-note" id="formStatus">We typically respond within one business day.</div>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <div class="brand-name">Elite Cement Products<span style="color:#ADA894;">LLC</span></div>
-        <p>Batching and casting concrete masonry, pavers, and precast for contractors across Oman since 2008.</p>
-      </div>
-      <div class="foot-col">
-        <h4>Products</h4>
-        <a href="#products">CMU Block</a>
-        <a href="#products">Pavers</a>
-        <a href="#products">Precast</a>
-        <a href="#products">Ready-Mix</a>
-      </div>
-      <div class="foot-col">
-        <h4>Company</h4>
-        <a href="#process">Our Process</a>
-        <a href="#specs">Specs &amp; QC</a>
-        <a href="#gallery">Projects</a>
-        <a href="#quote">Get a Quote</a>
-      </div>
-      <div class="foot-col">
-        <h4>Contact</h4>
-        <p>Rusayl Industrial City</p>
-        <p>Muscat, Sultanate of Oman</p>
-        <p>0096894698496</p>
-        <p>akramncp123@gmail.com</p>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <div>© 2026 Elite Cement Products LLC. All rights reserved.</div>
-      <div class="mono">ASTM C90 · ASTM C140 · NRMCA MEMBER</div>
-    </div>
-  </div>
+<footer style="background:#222; color:white; text-align:center; padding:20px;">
+  <p>© 2026 Elite Cement Products LLC. All Rights Reserved.</p>
 </footer>
-
-<script>
-  // build block stack rows
-  const stack = document.getElementById('blockStack');
-  const rows = 7;
-  for(let r=0;r<rows;r++){
-    const row = document.createElement('div');
-    row.className='block-row';
-    const cols = r % 2 === 0 ? 6 : 5;
-    for(let c=0;c<cols;c++){
-      const b = document.createElement('div');
-      b.className='block';
-      row.appendChild(b);
-    }
-    stack.appendChild(row);
-  }
-
-  // quote form -> Formspree
-  const quoteForm = document.getElementById('quoteForm');
-  const formStatus = document.getElementById('formStatus');
-  const submitBtn = document.getElementById('quoteSubmitBtn');
-  quoteForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-    formStatus.textContent = '';
-    fetch(quoteForm.action, {
-      method: 'POST',
-      body: new FormData(quoteForm),
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if(response.ok){
-        formStatus.textContent = 'Request received — we\'ll follow up shortly.';
-        quoteForm.reset();
-      } else {
-        formStatus.textContent = 'Something went wrong — please email or call us directly.';
-      }
-    }).catch(() => {
-      formStatus.textContent = 'Something went wrong — please email or call us directly.';
-    }).finally(() => {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Submit Request';
-    });
-  });
-
-  // scroll reveal
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
 
 </body>
 </html>
