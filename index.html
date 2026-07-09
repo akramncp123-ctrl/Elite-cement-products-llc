@@ -11,18 +11,21 @@
     header{background:#C8102E;color:white;padding:15px 0;position:sticky;top:0;z-index:100}
     .header-content{display:flex;align-items:center;gap:15px;max-width:1200px;margin:0 auto;padding:0 20px}
     .logo img{height:50px;border-radius:5px}
-    .logo h1{font-size:1.3rem}
     .section{background:white;padding:25px;margin:20px 0;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
     .section-title{text-align:center;color:#C8102E;margin-bottom:20px;font-size:1.8rem}
     .block-item{display:flex;align-items:center;justify-content:space-between;background:#fff;padding:15px;margin:10px 0;border:2px solid #eee;border-radius:8px}
-    .block-item input[type="checkbox"]{width:20px;height:20px}
+    .block-item label{font-size:16px;font-weight:500}
+    .block-item input[type="checkbox"]{width:20px;height:20px;margin-right:10px}
     .block-item input[type="number"]{width:80px;padding:8px;border:1px solid #ccc;border-radius:5px}
     .form-group{margin-bottom:15px}
     .form-group label{display:block;font-weight:bold;color:#003366;margin-bottom:8px}
     .form-group input,.form-group textarea{width:100%;padding:12px;border:2px solid #ddd;border-radius:5px;font-size:16px}
-    .btn-submit{width:100%;background:#25D366;color:white;padding:16px;border:none;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer;margin-top:10px}
-    .btn-submit:hover{background:#1ebe5a}
+    .btn-whatsapp{width:100%;background:#25D366;color:white;padding:16px;border:none;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer;margin-top:10px}
+    .btn-email{width:100%;background:#C8102E;color:white;padding:16px;border:none;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer;margin-top:10px}
+    .btn-whatsapp:hover{background:#1ebe5a}
+    .btn-email:hover{background:#a50e26}
     footer{background:#1a1a1a;color:white;text-align:center;padding:20px;margin-top:30px}
+    @media(max-width:768px){.header-content{flex-direction:column;align-items:flex-start}}
 </style>
 </head>
 <body>
@@ -32,7 +35,10 @@
         <div class="logo">
             <img src="logo.png" alt="Elite Cement Logo">
         </div>
-        <h1>Elite Cement Products LLC</h1>
+        <div>
+            <h1>Elite Cement Products LLC</h1>
+            <p style="font-size:0.9rem;opacity:0.9;margin-top:3px">Leading Supplier of Concrete Blocks & Building Materials in Oman</p>
+        </div>
     </div>
 </header>
 
@@ -40,7 +46,7 @@
 
 <section class="section">
     <h2 class="section-title">Concrete Blocks</h2>
-    <p style="text-align:center;margin-bottom:20px">Select type & quantity. Quote in 1 Hour. Prices vary by area.</p>
+    <p style="text-align:center;margin-bottom:20px;color:#666">Select type & quantity. Quote in 1 Hour. Prices vary by area.</p>
     
     <div class="block-item">
         <label><input type="checkbox" name="product" value="Solid block 4&quot;"> Solid block 4"</label>
@@ -73,7 +79,7 @@
     <form id="quoteForm">
         <div class="form-group">
             <label>Your Name *</label>
-            <input type="text" id="name" placeholder="Ex: Ahmed" required>
+            <input type="text" id="name" placeholder="Ex: Ahmed Al Balushi" required>
         </div>
         <div class="form-group">
             <label>Location / Site Address *</label>
@@ -92,15 +98,25 @@
             <textarea id="message" rows="3" placeholder="Ex: Need pump, Night delivery, Submit formal quote"></textarea>
         </div>
         
-        <button type="button" class="btn-submit" onclick="sendQuote()">Submit Quote Request via WhatsApp</button>
+        <button type="button" class="btn-whatsapp" onclick="sendQuote()">Submit Quote Request via WhatsApp</button>
+        <button type="button" class="btn-email" onclick="sendEmail()">Send Quote Request via Email</button>
     </form>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Contact Us</h2>
+    <p style="text-align:center;font-size:1.1rem;line-height:2">
+        <strong>📧 Email:</strong> info@elitecement.om<br>
+        <strong>📱 WhatsApp:</strong> +968 9XXXXXXX<br>
+        <strong>📍 Location:</strong> Muscat, Oman<br>
+        <strong>⏰ Bank details will be shared after quote confirmation</strong>
+    </p>
 </section>
 
 </div>
 
 <footer>
-    <p>&copy; 2026 Elite Cement Products LLC | Muscat, Oman</p>
-    <p>Email: info@elitecement.om | WhatsApp: +968 9XXXXXXX</p>
+    <p>&copy; 2026 Elite Cement Products LLC. All Rights Reserved.</p>
 </footer>
 
 <script>
@@ -111,11 +127,21 @@ function sendQuote(){
     let whatsapp = document.getElementById('whatsapp').value;
     let message = document.getElementById('message').value;
     
+    if(!name || !address || !date || !whatsapp){
+        alert("Please fill all required fields *");
+        return;
+    }
+    
     let products = [];
     document.querySelectorAll('input[name="product"]:checked').forEach((cb)=>{
         let qty = cb.closest('.block-item').querySelector('input[type="number"]').value;
-        products.push(cb.value + " - Qty: " + qty);
+        if(qty) products.push(cb.value + " - Qty: " + qty);
     });
+    
+    if(products.length === 0){
+        alert("Please select at least 1 product");
+        return;
+    }
     
     let quoteText = `*NEW QUOTE REQUEST - ELITE CEMENT*%0A%0A`;
     quoteText += `*Name:* ${name}%0A`;
@@ -125,15 +151,15 @@ function sendQuote(){
     quoteText += `*Products:*%0A${products.join('%0A')}%0A%0A`;
     quoteText += `*Message:* ${message}`;
     
-    // SEND TO WHATSAPP - CHANGE THIS NUMBER
-    let waNumber = "9689XXXXXXX"; // <-- PUT YOUR WHATSAPP NUMBER HERE WITHOUT +
-    window.open(`https://wa.me/${waNumber}?text=${quoteText}`);
-    
-    // SEND TO EMAIL - CHANGE THIS EMAIL
-    let email = "info@elitecement.om"; // <-- PUT YOUR EMAIL HERE
-    window.location.href = `mailto:${email}?subject=Quote Request from ${name}&body=${decodeURIComponent(quoteText)}`;
+    let waNumber = "9689XXXXXXX"; // <-- CHANGE TO YOUR WHATSAPP NUMBER WITHOUT +
+    window.open(`https://wa.me/${waNumber}?text=${quoteText}`, '_blank');
 }
-</script>
 
-</body>
-</html>
+function sendEmail(){
+    let name = document.getElementById('name').value;
+    let address = document.getElementById('address').value;
+    let date = document.getElementById('date').value;
+    let whatsapp = document.getElementById('whatsapp').value;
+    let message = document.getElementById('message').value;
+    
+    if(!name || !
