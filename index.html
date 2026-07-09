@@ -3,27 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Cement Products LLC - Concrete Blocks Oman</title>
+<title>Elite Cement Products LLC - Concrete Blocks & Ready Mix Oman</title>
 <style>
     *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
     body{background:#f5f5f5;color:#333}
-    .container{max-width:900px;margin:0 auto;padding:20px}
+    .container{max-width:1000px;margin:0 auto;padding:20px}
     header{background:#C8102E;color:white;padding:15px 0;position:sticky;top:0;z-index:100}
-    .header-content{display:flex;align-items:center;gap:15px;max-width:1200px;margin:0 auto;padding:0 20px}
+    .header-content{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 20px}
+    .logo{display:flex;align-items:center;gap:15px}
     .logo img{height:50px;border-radius:5px}
-    .section{background:white;padding:25px;margin:20px 0;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
-    .section-title{text-align:center;color:#C8102E;margin-bottom:20px;font-size:1.8rem}
-    .block-item{display:flex;align-items:center;justify-content:space-between;background:#fff;padding:15px;margin:10px 0;border:2px solid #eee;border-radius:8px}
-    .block-item label{font-size:16px;font-weight:500}
-    .block-item input[type="checkbox"]{width:20px;height:20px;margin-right:10px}
-    .block-item input[type="number"]{width:80px;padding:8px;border:1px solid #ccc;border-radius:5px}
+    nav a{color:white;text-decoration:none;margin:0 10px;font-weight:bold}
+    .hero{background:linear-gradient(rgba(200,16,46,0.85),rgba(200,16,46,0.85)),url('https://images.unsplash.com/photo-1541888943205-53385e373c71?q=80&w=1200') center/cover; color:white;text-align:center;padding:80px 20px}
+    .hero h1{font-size:2.2rem;margin-bottom:15px}
+    .btn{padding:14px 28px;border:none;border-radius:8px;font-size:17px;font-weight:bold;cursor:pointer;margin:10px;text-decoration:none;display:inline-block}
+    .btn-red{background:#C8102E;color:white}
+    .btn-green{background:#25D366;color:white}
+    .section{background:white;padding:40px 25px;margin:30px 0;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+    .section-title{text-align:center;color:#C8102E;margin-bottom:25px;font-size:2rem}
+    .about-text{text-align:center;font-size:1.1rem;line-height:1.8;color:#555;max-width:800px;margin:0 auto}
+    .item{display:flex;align-items:center;justify-content:space-between;background:#f9f9f9;padding:15px;margin:10px 0;border:2px solid #eee;border-radius:8px}
+    .item label{font-size:16px;font-weight:500}
+    .item input[type="checkbox"]{width:20px;height:20px;margin-right:10px}
+    .item input[type="number"]{width:100px;padding:8px;border:1px solid #ccc;border-radius:5px}
     .form-group{margin-bottom:15px}
     .form-group label{display:block;font-weight:bold;color:#003366;margin-bottom:8px}
     .form-group input,.form-group textarea{width:100%;padding:12px;border:2px solid #ddd;border-radius:5px;font-size:16px}
     .btn-whatsapp{width:100%;background:#25D366;color:white;padding:16px;border:none;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer;margin-top:10px}
     .btn-email{width:100%;background:#C8102E;color:white;padding:16px;border:none;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer;margin-top:10px}
     footer{background:#1a1a1a;color:white;text-align:center;padding:20px;margin-top:30px}
-    @media(max-width:768px){.header-content{flex-direction:column;align-items:flex-start}}
+    @media(max-width:768px){.header-content{flex-direction:column} nav{margin-top:10px}}
 </style>
 </head>
 <body>
@@ -31,77 +39,74 @@
 <header>
     <div class="header-content">
         <div class="logo">
-            <img src="logo.png" alt="Elite Cement Logo">
+            <img src="logo.png" alt="Elite Cement Products LLC Logo">
+            <div>
+                <h2>Elite Cement<br>Products LLC</h2>
+            </div>
         </div>
-        <div>
-            <h1>Elite Cement Products LLC</h1>
-            <p style="font-size:0.9rem;opacity:0.9;margin-top:3px">Leading Supplier of Concrete Blocks & Building Materials in Oman</p>
-        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#quote">Get Quote</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </div>
 </header>
 
+<section id="home" class="hero">
+    <h1>Premium Quality Cement & Building Materials for Your Projects</h1>
+    <a href="#quote" class="btn btn-red">Request Quote</a>
+    <a href="https://wa.me/9689XXXXXXX" class="btn btn-green" target="_blank">WhatsApp Us</a>
+</section>
+
 <div class="container">
+
+<section id="about" class="section">
+    <h2 class="section-title">About Elite Cement</h2>
+    <p class="about-text">
+    Elite Cement Products LLC is a trusted name in Oman's construction industry. We provide high-quality cement, concrete, and building materials with on-time delivery and exceptional customer service to contractors and builders across the region.
+    </p>
+</section>
+
+<section id="products" class="section">
+    <h2 class="section-title">Ready Mix Concrete</h2>
+    <p style="text-align:center;margin-bottom:20px;color:#666">Select grade & quantity in Cubic Meters. Pump available on request.</p>
+    
+    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix 20MPa"> Ready Mix 20MPa</label><input type="number" name="qty_rm20" placeholder="m3"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix 25MPa"> Ready Mix 25MPa</label><input type="number" name="qty_rm25" placeholder="m3"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix 30MPa"> Ready Mix 30MPa</label><input type="number" name="qty_rm30" placeholder="m3"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix 35MPa"> Ready Mix 35MPa</label><input type="number" name="qty_rm35" placeholder="m3"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix with Pump"> Ready Mix + Concrete Pump</label><input type="number" name="qty_pump" placeholder="Hours"></div>
+</section>
 
 <section class="section">
     <h2 class="section-title">Concrete Blocks</h2>
     <p style="text-align:center;margin-bottom:20px;color:#666">Select type & quantity. Quote in 1 Hour. Prices vary by area.</p>
     
-    <div class="block-item">
-        <label><input type="checkbox" name="product" value="Solid block 4&quot;"> Solid block 4"</label>
-        <input type="number" name="qty_4solid" placeholder="Qty">
-    </div>
-    <div class="block-item">
-        <label><input type="checkbox" name="product" value="Solid block 8&quot;"> Solid block 8"</label>
-        <input type="number" name="qty_8solid" placeholder="Qty">
-    </div>
-    <div class="block-item">
-        <label><input type="checkbox" name="product" value="Hollow block 4&quot;"> Hollow block 4"</label>
-        <input type="number" name="qty_4hollow" placeholder="Qty">
-    </div>
-    <div class="block-item">
-        <label><input type="checkbox" name="product" value="Hollow block 6&quot;"> Hollow block 6"</label>
-        <input type="number" name="qty_6hollow" placeholder="Qty">
-    </div>
-    <div class="block-item">
-        <label><input type="checkbox" name="product" value="Hollow block 8&quot;"> Hollow block 8"</label>
-        <input type="number" name="qty_8hollow" placeholder="Qty">
-    </div>
-    <div class="block-item">
-        <label><input type="checkbox" name="product" value="Half block 20x20"> Half block 20x20</label>
-        <input type="number" name="qty_half" placeholder="Qty">
-    </div>
+    <div class="item"><label><input type="checkbox" name="product" value="Solid block 4&quot;"> Solid block 4"</label><input type="number" name="qty_4solid" placeholder="Qty"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Solid block 8&quot;"> Solid block 8"</label><input type="number" name="qty_8solid" placeholder="Qty"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Hollow block 4&quot;"> Hollow block 4"</label><input type="number" name="qty_4hollow" placeholder="Qty"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Hollow block 6&quot;"> Hollow block 6"</label><input type="number" name="qty_6hollow" placeholder="Qty"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Hollow block 8&quot;"> Hollow block 8"</label><input type="number" name="qty_8hollow" placeholder="Qty"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Half block 20x20"> Half block 20x20</label><input type="number" name="qty_half" placeholder="Qty"></div>
 </section>
 
-<section class="section">
-    <h2 class="section-title">Your Details & Delivery</h2>
+<section id="quote" class="section">
+    <h2 class="section-title">Get Your Quote</h2>
     <form id="quoteForm">
-        <div class="form-group">
-            <label>Your Name *</label>
-            <input type="text" id="name" placeholder="Ex: Ahmed Al Balushi" required>
-        </div>
-        <div class="form-group">
-            <label>Location / Site Address *</label>
-            <textarea id="address" rows="3" placeholder="Ex: Al Khuwair, Street 5, Villa 12" required></textarea>
-        </div>
-        <div class="form-group">
-            <label>Supply Date *</label>
-            <input type="date" id="date" required>
-        </div>
-        <div class="form-group">
-            <label>WhatsApp Number *</label>
-            <input type="tel" id="whatsapp" placeholder="00968 9XXXXXXX" required>
-        </div>
-        <div class="form-group">
-            <label>Message / Special Instructions</label>
-            <textarea id="message" rows="3" placeholder="Ex: Night delivery, Submit formal quote"></textarea>
-        </div>
+        <div class="form-group"><label>Your Name *</label><input type="text" id="name" placeholder="Ex: Ahmed Al Balushi" required></div>
+        <div class="form-group"><label>Location / Site Address *</label><textarea id="address" rows="3" placeholder="Ex: Al Khuwair, Street 5" required></textarea></div>
+        <div class="form-group"><label>Supply Date *</label><input type="date" id="date" required></div>
+        <div class="form-group"><label>WhatsApp Number *</label><input type="tel" id="whatsapp" placeholder="00968 9XXXXXXX" required></div>
+        <div class="form-group"><label>Message</label><textarea id="message" rows="3"></textarea></div>
         
         <button type="button" class="btn-whatsapp" onclick="sendQuote()">Submit Quote Request via WhatsApp</button>
         <button type="button" class="btn-email" onclick="sendEmail()">Send Quote Request via Email</button>
     </form>
 </section>
 
-<section class="section">
+<section id="contact" class="section">
     <h2 class="section-title">Contact Us</h2>
     <p style="text-align:center;font-size:1.1rem;line-height:2">
         <strong>📧 Email:</strong> info@elitecement.om<br>
@@ -124,61 +129,30 @@ function sendQuote(){
     let date = document.getElementById('date').value;
     let whatsapp = document.getElementById('whatsapp').value;
     let message = document.getElementById('message').value;
-    
-    if(!name || !address || !date || !whatsapp){
-        alert("Please fill all required fields *");
-        return;
-    }
-    
+    if(!name || !address || !date || !whatsapp){alert("Please fill all required fields *");return;}
     let products = [];
     document.querySelectorAll('input[name="product"]:checked').forEach((cb)=>{
-        let qty = cb.closest('.block-item').querySelector('input[type="number"]').value;
+        let qty = cb.closest('.item').querySelector('input[type="number"]').value;
         if(qty) products.push(cb.value + " - Qty: " + qty);
     });
-    
-    if(products.length === 0){
-        alert("Please select at least 1 product");
-        return;
-    }
-    
-    let quoteText = `*NEW QUOTE REQUEST - ELITE CEMENT BLOCKS*%0A%0A`;
-    quoteText += `*Name:* ${name}%0A`;
-    quoteText += `*Address:* ${address}%0A`;
-    quoteText += `*Supply Date:* ${date}%0A`;
-    quoteText += `*WhatsApp:* ${whatsapp}%0A`;
-    quoteText += `*Products:*%0A${products.join('%0A')}%0A%0A`;
-    quoteText += `*Message:* ${message}`;
-    
-    let waNumber = "9689XXXXXXX"; // <-- CHANGE TO YOUR WHATSAPP NUMBER WITHOUT +
+    if(products.length === 0){alert("Please select at least 1 product");return;}
+    let quoteText = `*NEW QUOTE REQUEST - ELITE CEMENT*%0A%0A*Name:* ${name}%0A*Address:* ${address}%0A*Supply Date:* ${date}%0A*WhatsApp:* ${whatsapp}%0A*Products:*%0A${products.join('%0A')}%0A%0A*Message:* ${message}`;
+    let waNumber = "9689XXXXXXX"; // <-- CHANGE TO YOUR WHATSAPP
     window.open(`https://wa.me/${waNumber}?text=${quoteText}`, '_blank');
 }
-
 function sendEmail(){
     let name = document.getElementById('name').value;
     let address = document.getElementById('address').value;
     let date = document.getElementById('date').value;
     let whatsapp = document.getElementById('whatsapp').value;
     let message = document.getElementById('message').value;
-    
-    if(!name || !address || !date || !whatsapp){
-        alert("Please fill all required fields *");
-        return;
-    }
-    
+    if(!name || !address || !date || !whatsapp){alert("Please fill all required fields *");return;}
     let products = [];
     document.querySelectorAll('input[name="product"]:checked').forEach((cb)=>{
-        let qty = cb.closest('.block-item').querySelector('input[type="number"]').value;
+        let qty = cb.closest('.item').querySelector('input[type="number"]').value;
         if(qty) products.push(cb.value + " - Qty: " + qty);
     });
-    
-    let emailBody = `NEW QUOTE REQUEST - ELITE CEMENT BLOCKS\n`;
-    emailBody += `Name: ${name}\n`;
-    emailBody += `Address: ${address}\n`;
-    emailBody += `Supply Date: ${date}\n`;
-    emailBody += `WhatsApp: ${whatsapp}\n`;
-    emailBody += `Products:\n${products.join('\n')}\n\n`;
-    emailBody += `Message: ${message}`;
-    
+    let emailBody = `NEW QUOTE REQUEST - ELITE CEMENT\nName: ${name}\nAddress: ${address}\nSupply Date: ${date}\nWhatsApp: ${whatsapp}\nProducts:\n${products.join('\n')}\n\nMessage: ${message}`;
     let email = "info@elitecement.om"; // <-- CHANGE TO YOUR EMAIL
     window.location.href = `mailto:${email}?subject=Quote Request from ${name}&body=${encodeURIComponent(emailBody)}`;
 }
