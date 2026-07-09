@@ -32,6 +32,9 @@
     .form-group input,.form-group textarea{width:100%;padding:12px;border:2px solid #ddd;border-radius:5px;font-size:16px}
     .btn-whatsapp{width:100%;background:#25D366;color:white;padding:16px;border:none;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer;margin-top:10px}
     .btn-email{width:100%;background:#C8102E;color:white;padding:16px;border:none;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer;margin-top:10px}
+    .bank-box{background:#e8f5e9;border-left:5px solid #25D366;padding:20px;border-radius:8px;margin-top:15px}
+    .bank-box h3{color:#003366;margin-bottom:10px}
+    .bank-box p{margin:8px 0;font-size:1rem}
     footer{background:#1a1a1a;color:white;text-align:center;padding:20px;margin-top:30px}
     @media(max-width:768px){nav a{margin:0 8px;font-size:0.85rem}}
 </style>
@@ -76,41 +79,4 @@
     <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C25"> Ready Mix C25</label><input type="number" name="qty_c25" placeholder="m3"></div>
     <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C30"> Ready Mix C30</label><input type="number" name="qty_c30" placeholder="m3"></div>
     <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C35"> Ready Mix C35</label><input type="number" name="qty_c35" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C40"> Ready Mix C40</label><input type="number" name="qty_c40" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C45"> Ready Mix C45</label><input type="number" name="qty_c45" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C50"> Ready Mix C50</label><input type="number" name="qty_c50" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C55"> Ready Mix C55</label><input type="number" name="qty_c55" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Pump Service Charge"> Pump Service Charge</label><input type="number" name="qty_pump" placeholder="Hours"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Mixer Transport Charges"> Mixer Transport Charges</label><input type="number" name="qty_mixer" placeholder="Trips"></div>
-</section>
-
-<section class="section">
-    <h2 class="section-title">Concrete Blocks</h2>
-    <p style="text-align:center;margin-bottom:20px;color:#666">Select type & quantity. Quote in 1 Hour. Prices vary by area.</p>
-    
-    <div class="item"><label><input type="checkbox" name="product" value="Solid block 4&quot;"> Solid block 4"</label><input type="number" name="qty_4solid" placeholder="Qty"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Solid block 8&quot;"> Solid block 8"</label><input type="number" name="qty_8solid" placeholder="Qty"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Hollow block 4&quot;"> Hollow block 4"</label><input type="number" name="qty_4hollow" placeholder="Qty"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Hollow block 6&quot;"> Hollow block 6"</label><input type="number" name="qty_6hollow" placeholder="Qty"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Hollow block 8&quot;"> Hollow block 8"</label><input type="number" name="qty_8hollow" placeholder="Qty"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Half block 20x20"> Half block 20x20</label><input type="number" name="qty_half" placeholder="Qty"></div>
-</section>
-
-<section id="quote" class="section">
-    <h2 class="section-title">Get Your Quote</h2>
-    <form id="quoteForm">
-        <div class="form-group"><label>Your Name *</label><input type="text" id="name" placeholder="Ex: Ahmed Al Balushi" required></div>
-        <div class="form-group"><label>Location / Site Address *</label><textarea id="address" rows="3" placeholder="Ex: Al Khuwair, Street 5" required></textarea></div>
-        <div class="form-group"><label>Supply Date *</label><input type="date" id="date" required></div>
-        <div class="form-group"><label>WhatsApp Number *</label><input type="tel" id="whatsapp" placeholder="00968 9XXXXXXX" required></div>
-        <div class="form-group"><label>Message</label><textarea id="message" rows="3"></textarea></div>
-        
-        <button type="button" class="btn-whatsapp" onclick="sendQuote()">Submit Quote Request via WhatsApp</button>
-        <button type="button" class="btn-email" onclick="sendEmail()">Send Quote Request via Email</button>
-    </form>
-</section>
-
-<section id="contact" class="section">
-    <h2 class="section-title">Contact Us</h2>
-    <p style="text-align:center;font-size:1.1rem;line-height:2">
-        <strong>📧 Email:</
+    <div class="item">
