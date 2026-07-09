@@ -58,7 +58,7 @@
 <section id="home" class="hero">
     <h1>Premium Quality Cement & Building Materials for Your Projects</h1>
     <a href="#quote" class="btn btn-red">Request Quote</a>
-    <a href="https://wa.me/9689XXXXXXX" class="btn btn-green" target="_blank">WhatsApp Us</a>
+    <a href="https://wa.me/968994698496" class="btn btn-green" target="_blank">WhatsApp Us</a>
 </section>
 
 <div class="container">
@@ -156,7 +156,7 @@ function sendQuote(){
     });
     if(products.length === 0){alert("Please select at least 1 product");return;}
     let quoteText = `*NEW QUOTE REQUEST - ELITE CEMENT*%0A%0A*Name:* ${name}%0A*Address:* ${address}%0A*Supply Date:* ${date}%0A*WhatsApp:* ${whatsapp}%0A*Products:*%0A${products.join('%0A')}%0A%0A*Message:* ${message}`;
-    let waNumber = "9689XXXXXXX"; // <-- CHANGE TO YOUR WHATSAPP WITHOUT +
+    let waNumber = "968994698496"; // <-- CHANGE TO YOUR WHATSAPP WITHOUT +
     window.open(`https://wa.me/${waNumber}?text=${quoteText}`, '_blank');
 }
 function sendEmail(){
@@ -172,7 +172,7 @@ function sendEmail(){
         if(qty) products.push(cb.value + " - Qty: " + qty);
     });
     let emailBody = `NEW QUOTE REQUEST - ELITE CEMENT\nName: ${name}\nAddress: ${address}\nSupply Date: ${date}\nWhatsApp: ${whatsapp}\nProducts:\n${products.join('\n')}\n\nMessage: ${message}`;
-    let email = "info@elitecement.om"; // <-- CHANGE TO YOUR EMAIL
+    let email = "akramncp123@gmail.com"; // <-- CHANGE TO YOUR EMAIL
     window.location.href = `mailto:${email}?subject=Quote Request from ${name}&body=${encodeURIComponent(emailBody)}`;
 }
 </script>
