@@ -8,22 +8,24 @@
     *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
     body{background:#f5f5f5;color:#333}
     .container{max-width:1000px;margin:0 auto;padding:20px}
-    header{background:#C8102E;color:white;padding:15px 0;position:sticky;top:0;z-index:100}
-    .header-content{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 20px}
-    .logo{display:flex;align-items:center;gap:15px}
-    .logo img{height:50px;border-radius:5px}
-    nav a{color:white;text-decoration:none;margin:0 10px;font-weight:bold}
-    .hero{background:linear-gradient(rgba(200,16,46,0.85),rgba(200,16,46,0.85)),url('https://images.unsplash.com/photo-1541888943205-53385e373c71?q=80&w=1200') center/cover; color:white;text-align:center;padding:80px 20px}
-    .hero h1{font-size:2.2rem;margin-bottom:15px}
-    .btn{padding:14px 28px;border:none;border-radius:8px;font-size:17px;font-weight:bold;cursor:pointer;margin:10px;text-decoration:none;display:inline-block}
-    .btn-red{background:#C8102E;color:white}
+    header{background:#C8102E;color:white;padding:18px 0;position:sticky;top:0;z-index:100}
+    .header-content{max-width:1200px;margin:0 auto;padding:0 20px;text-align:center}
+    .header-content h1{font-size:1.6rem;margin-bottom:5px}
+    .header-content p{font-size:0.9rem;opacity:0.9}
+    nav{margin-top:12px}
+    nav a{color:white;text-decoration:none;margin:0 12px;font-weight:bold;font-size:0.95rem}
+    nav a:hover{text-decoration:underline}
+    .hero{background:linear-gradient(rgba(200,16,46,0.9),rgba(200,16,46,0.9)),url('https://images.unsplash.com/photo-1541888943205-53385e373c71?q=80&w=1200') center/cover; color:white;text-align:center;padding:70px 20px}
+    .hero h1{font-size:2rem;margin-bottom:20px}
+    .btn{padding:14px 28px;border:none;border-radius:8px;font-size:17px;font-weight:bold;cursor:pointer;margin:8px;text-decoration:none;display:inline-block}
+    .btn-red{background:#8B0000;color:white}
     .btn-green{background:#25D366;color:white}
-    .section{background:white;padding:40px 25px;margin:30px 0;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
-    .section-title{text-align:center;color:#C8102E;margin-bottom:25px;font-size:2rem}
+    .section{background:white;padding:35px 25px;margin:25px 0;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+    .section-title{text-align:center;color:#C8102E;margin-bottom:25px;font-size:1.9rem}
     .about-text{text-align:center;font-size:1.1rem;line-height:1.8;color:#555;max-width:800px;margin:0 auto}
-    .item{display:flex;align-items:center;justify-content:space-between;background:#f9f9f9;padding:15px;margin:10px 0;border:2px solid #eee;border-radius:8px}
-    .item label{font-size:16px;font-weight:500}
-    .item input[type="checkbox"]{width:20px;height:20px;margin-right:10px}
+    .item{display:flex;align-items:center;justify-content:space-between;background:#f9f9f9;padding:16px;margin:12px 0;border:2px solid #eee;border-radius:8px}
+    .item label{font-size:16px;font-weight:500;display:flex;align-items:center;gap:10px}
+    .item input[type="checkbox"]{width:20px;height:20px}
     .item input[type="number"]{width:100px;padding:8px;border:1px solid #ccc;border-radius:5px}
     .form-group{margin-bottom:15px}
     .form-group label{display:block;font-weight:bold;color:#003366;margin-bottom:8px}
@@ -31,19 +33,15 @@
     .btn-whatsapp{width:100%;background:#25D366;color:white;padding:16px;border:none;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer;margin-top:10px}
     .btn-email{width:100%;background:#C8102E;color:white;padding:16px;border:none;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer;margin-top:10px}
     footer{background:#1a1a1a;color:white;text-align:center;padding:20px;margin-top:30px}
-    @media(max-width:768px){.header-content{flex-direction:column} nav{margin-top:10px}}
+    @media(max-width:768px){nav a{margin:0 8px;font-size:0.85rem}}
 </style>
 </head>
 <body>
 
 <header>
     <div class="header-content">
-        <div class="logo">
-            <img src="logo.png" alt="Elite Cement Products LLC Logo">
-            <div>
-                <h2>Elite Cement<br>Products LLC</h2>
-            </div>
-        </div>
+        <h1>Elite Cement Products LLC</h1>
+        <p>Premium Cement, Blocks & Ready Mix in Oman</p>
         <nav>
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -71,13 +69,19 @@
 
 <section id="products" class="section">
     <h2 class="section-title">Ready Mix Concrete</h2>
-    <p style="text-align:center;margin-bottom:20px;color:#666">Select grade & quantity in Cubic Meters. Pump available on request.</p>
+    <p style="text-align:center;margin-bottom:20px;color:#666">Select grade & quantity in Cubic Meters. All prices vary by location.</p>
     
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix 20MPa"> Ready Mix 20MPa</label><input type="number" name="qty_rm20" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix 25MPa"> Ready Mix 25MPa</label><input type="number" name="qty_rm25" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix 30MPa"> Ready Mix 30MPa</label><input type="number" name="qty_rm30" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix 35MPa"> Ready Mix 35MPa</label><input type="number" name="qty_rm35" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix with Pump"> Ready Mix + Concrete Pump</label><input type="number" name="qty_pump" placeholder="Hours"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C15"> Ready Mix C15</label><input type="number" name="qty_c15" placeholder="m3"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C20"> Ready Mix C20</label><input type="number" name="qty_c20" placeholder="m3"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C25"> Ready Mix C25</label><input type="number" name="qty_c25" placeholder="m3"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C30"> Ready Mix C30</label><input type="number" name="qty_c30" placeholder="m3"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C35"> Ready Mix C35</label><input type="number" name="qty_c35" placeholder="m3"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C40"> Ready Mix C40</label><input type="number" name="qty_c40" placeholder="m3"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C45"> Ready Mix C45</label><input type="number" name="qty_c45" placeholder="m3"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C50"> Ready Mix C50</label><input type="number" name="qty_c50" placeholder="m3"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C55"> Ready Mix C55</label><input type="number" name="qty_c55" placeholder="m3"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Pump Service Charge"> Pump Service Charge</label><input type="number" name="qty_pump" placeholder="Hours"></div>
+    <div class="item"><label><input type="checkbox" name="product" value="Mixer Transport Charges"> Mixer Transport Charges</label><input type="number" name="qty_mixer" placeholder="Trips"></div>
 </section>
 
 <section class="section">
@@ -109,54 +113,4 @@
 <section id="contact" class="section">
     <h2 class="section-title">Contact Us</h2>
     <p style="text-align:center;font-size:1.1rem;line-height:2">
-        <strong>📧 Email:</strong> info@elitecement.om<br>
-        <strong>📱 WhatsApp:</strong> +968 9XXXXXXX<br>
-        <strong>📍 Location:</strong> Muscat, Oman<br>
-        <strong>⏰ Bank details will be shared after quote confirmation</strong>
-    </p>
-</section>
-
-</div>
-
-<footer>
-    <p>&copy; 2026 Elite Cement Products LLC. All Rights Reserved.</p>
-</footer>
-
-<script>
-function sendQuote(){
-    let name = document.getElementById('name').value;
-    let address = document.getElementById('address').value;
-    let date = document.getElementById('date').value;
-    let whatsapp = document.getElementById('whatsapp').value;
-    let message = document.getElementById('message').value;
-    if(!name || !address || !date || !whatsapp){alert("Please fill all required fields *");return;}
-    let products = [];
-    document.querySelectorAll('input[name="product"]:checked').forEach((cb)=>{
-        let qty = cb.closest('.item').querySelector('input[type="number"]').value;
-        if(qty) products.push(cb.value + " - Qty: " + qty);
-    });
-    if(products.length === 0){alert("Please select at least 1 product");return;}
-    let quoteText = `*NEW QUOTE REQUEST - ELITE CEMENT*%0A%0A*Name:* ${name}%0A*Address:* ${address}%0A*Supply Date:* ${date}%0A*WhatsApp:* ${whatsapp}%0A*Products:*%0A${products.join('%0A')}%0A%0A*Message:* ${message}`;
-    let waNumber = "9689XXXXXXX"; // <-- CHANGE TO YOUR WHATSAPP
-    window.open(`https://wa.me/${waNumber}?text=${quoteText}`, '_blank');
-}
-function sendEmail(){
-    let name = document.getElementById('name').value;
-    let address = document.getElementById('address').value;
-    let date = document.getElementById('date').value;
-    let whatsapp = document.getElementById('whatsapp').value;
-    let message = document.getElementById('message').value;
-    if(!name || !address || !date || !whatsapp){alert("Please fill all required fields *");return;}
-    let products = [];
-    document.querySelectorAll('input[name="product"]:checked').forEach((cb)=>{
-        let qty = cb.closest('.item').querySelector('input[type="number"]').value;
-        if(qty) products.push(cb.value + " - Qty: " + qty);
-    });
-    let emailBody = `NEW QUOTE REQUEST - ELITE CEMENT\nName: ${name}\nAddress: ${address}\nSupply Date: ${date}\nWhatsApp: ${whatsapp}\nProducts:\n${products.join('\n')}\n\nMessage: ${message}`;
-    let email = "info@elitecement.om"; // <-- CHANGE TO YOUR EMAIL
-    window.location.href = `mailto:${email}?subject=Quote Request from ${name}&body=${encodeURIComponent(emailBody)}`;
-}
-</script>
-
-</body>
-</html>
+        <strong>📧 Email:</
