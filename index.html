@@ -22,8 +22,6 @@
     .form-group input,.form-group textarea{width:100%;padding:12px;border:2px solid #ddd;border-radius:5px;font-size:16px}
     .btn-whatsapp{width:100%;background:#25D366;color:white;padding:16px;border:none;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer;margin-top:10px}
     .btn-email{width:100%;background:#C8102E;color:white;padding:16px;border:none;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer;margin-top:10px}
-    .btn-whatsapp:hover{background:#1ebe5a}
-    .btn-email:hover{background:#a50e26}
     footer{background:#1a1a1a;color:white;text-align:center;padding:20px;margin-top:30px}
     @media(max-width:768px){.header-content{flex-direction:column;align-items:flex-start}}
 </style>
@@ -95,7 +93,7 @@
         </div>
         <div class="form-group">
             <label>Message / Special Instructions</label>
-            <textarea id="message" rows="3" placeholder="Ex: Need pump, Night delivery, Submit formal quote"></textarea>
+            <textarea id="message" rows="3" placeholder="Ex: Night delivery, Submit formal quote"></textarea>
         </div>
         
         <button type="button" class="btn-whatsapp" onclick="sendQuote()">Submit Quote Request via WhatsApp</button>
@@ -143,7 +141,7 @@ function sendQuote(){
         return;
     }
     
-    let quoteText = `*NEW QUOTE REQUEST - ELITE CEMENT*%0A%0A`;
+    let quoteText = `*NEW QUOTE REQUEST - ELITE CEMENT BLOCKS*%0A%0A`;
     quoteText += `*Name:* ${name}%0A`;
     quoteText += `*Address:* ${address}%0A`;
     quoteText += `*Supply Date:* ${date}%0A`;
@@ -162,4 +160,29 @@ function sendEmail(){
     let whatsapp = document.getElementById('whatsapp').value;
     let message = document.getElementById('message').value;
     
-    if(!name || !
+    if(!name || !address || !date || !whatsapp){
+        alert("Please fill all required fields *");
+        return;
+    }
+    
+    let products = [];
+    document.querySelectorAll('input[name="product"]:checked').forEach((cb)=>{
+        let qty = cb.closest('.block-item').querySelector('input[type="number"]').value;
+        if(qty) products.push(cb.value + " - Qty: " + qty);
+    });
+    
+    let emailBody = `NEW QUOTE REQUEST - ELITE CEMENT BLOCKS\n`;
+    emailBody += `Name: ${name}\n`;
+    emailBody += `Address: ${address}\n`;
+    emailBody += `Supply Date: ${date}\n`;
+    emailBody += `WhatsApp: ${whatsapp}\n`;
+    emailBody += `Products:\n${products.join('\n')}\n\n`;
+    emailBody += `Message: ${message}`;
+    
+    let email = "info@elitecement.om"; // <-- CHANGE TO YOUR EMAIL
+    window.location.href = `mailto:${email}?subject=Quote Request from ${name}&body=${encodeURIComponent(emailBody)}`;
+}
+</script>
+
+</body>
+</html>
