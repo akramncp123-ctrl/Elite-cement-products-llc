@@ -10,7 +10,6 @@
     .container { max-width: 800px; margin: auto; padding: 20px; }
     h1, h2 { color: #0a2a5a; text-align: center; margin-bottom: 15px; }
     
-    /* LOGO SECTION */
     .logo-section { background: white; padding: 20px; text-align: center; border-bottom: 3px solid #0a2a5a; }
     .logo-section img { max-width: 200px; height: auto; }
     
@@ -21,36 +20,35 @@
     .banner h2 { color: white; font-size: 26px; margin-bottom: 10px; }
     .form-section { background: #f8f9fa; padding: 40px 30px; border-radius: 10px; margin: 40px 0; }
     label { font-weight: bold; display: block; margin-bottom: 8px; color: #0a2a5a; }
-    input, select { width: 100%; padding: 14px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; }
+    input, select, textarea { width: 100%; padding: 14px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; }
     button { width: 100%; padding: 16px; background: #25D366; color: white; border: none; border-radius: 5px; font-size: 18px; font-weight: bold; cursor: pointer; }
     button:hover { background: #128C7E; }
     .block-item { background: white; padding: 15px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center; }
     .block-item label { margin: 0; font-weight: normal; }
     .block-item input[type="text"] { width: 80px; margin: 0; }
     .sub-text { text-align: center; color: #666; margin-bottom: 25px; }
+    .row { display: flex; gap: 15px; }
+    .row > div { flex: 1; }
+    @media(max-width: 600px){ .row { flex-direction: column; } }
   </style>
 </head>
 <body>
 
-  <!-- LOGO SECTION -->
   <div class="logo-section">
     <img src="logo.png" alt="Elite Cement Products LLC Logo">
   </div>
 
-  <!-- HEADER -->
   <div class="hero">
     <h1>Elite Cement Products LLC</h1>
     <h2>OPC & SRC | C15 to C60 | Concrete Blocks 4" to 10"</h2>
   </div>
 
-  <!-- BANNER -->
   <div class="banner">
     <h2>Oman's Trusted Ready-Mix & Blocks Supplier</h2>
     <p>Fast Delivery | Quality Guaranteed | 24/7 Service</p>
   </div>
 
   <div class="container">
-    <!-- REQUEST QUOTE FORM -->
     <section class="form-section">
       <h2>Request Quote</h2>
       <p class="sub-text">We reply within 1 hour</p>
@@ -71,6 +69,9 @@
           <option value="C60">C60 - Ready Mix Concrete</option>
         </select>
 
+        <label>Quantity for RMC *</label>
+        <input type="text" id="rmc_qty" name="rmc_qty" placeholder="Ex: 50 Cubic Meter" required>
+
         <label>Cement Type *</label>
         <select id="cement_type" name="cement_type" required>
           <option value="">Select Cement Type *</option>
@@ -78,7 +79,6 @@
           <option value="SRC">SRC - Sulphate Resistant Cement</option>
         </select>
 
-        <!-- BLOCKS SECTION -->
         <h2 style="margin-top: 30px;">Concrete Blocks</h2>
         <p class="sub-text">Select type & quantity. Quote in 1 Hour. Prices vary by area.</p>
 
@@ -107,39 +107,42 @@
           <input type="text" name="qty_half" placeholder="Qty">
         </div>
 
-        <h2 style="margin-top: 30px;">Your Details</h2>
+        <h2 style="margin-top: 30px;">Your Details & Delivery</h2>
 
         <label>Your Name *</label>
         <input type="text" id="name" name="name" placeholder="Ex: Ahmed" required>
 
-        <label>Your Area / City *</label>
-        <input type="text" id="area" name="area" placeholder="Ex: Al Khuwair, Al Ghubra" required>
+        <label>Location / Site Address *</label>
+        <textarea id="location" name="location" placeholder="Ex: Al Khuwair, Street 5, Villa 12" rows="3" required></textarea>
 
-        <label>WhatsApp Number *</label>
-        <input type="tel" id="phone" name="phone" placeholder="Ex: 00968 9XXXXXXX" required>
+        <div class="row">
+          <div>
+            <label>Supply Date *</label>
+            <input type="date" id="supply_date" name="supply_date" required>
+          </div>
+          <div>
+            <label>WhatsApp Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="00968 9XXXXXXX" required>
+          </div>
+        </div>
 
-        <button type="submit">Send Quote Request via WhatsApp</button>
+        <label>Message / Special Instructions</label>
+        <textarea id="message" name="message" placeholder="Ex: Need pump, Night delivery, Submit formal quote" rows="3"></textarea>
+
+        <button type="submit">Submit Quote Request via WhatsApp</button>
       </form>
     </section>
   </div>
 
-  <!-- CONTACT & BANK DETAILS -->
   <section style="background: #0a2a5a; color: white; padding: 50px 20px; text-align: center;">
     <div style="max-width: 600px; margin: auto;">
       <h2 style="margin-bottom: 30px; font-size: 30px; color: white;">Contact & Bank Details</h2>
-
       <p style="margin: 12px 0; font-size: 17px;"><b>Contact Person:</b> Akram</p>
       <p style="margin: 12px 0; font-size: 17px;"><b>Mobile / WhatsApp:</b> 00968 9469 8496</p>
-      
       <hr style="border: 1px solid rgba(255,255,255,0.2); margin: 30px 0;">
-      
       <p style="margin: 12px 0; font-size: 17px;"><b>Bank:</b> Bank Muscat</p>
       <p style="margin: 12px 0; font-size: 17px;"><b>Account Name:</b> Akram</p>
       <p style="margin: 12px 0; font-size: 17px;"><b>Mobile Payment Number:</b> 00968 9469 8496</p>
-      
-      <p style="margin-top: 25px; font-size: 15px; color: #a8d0ff;">
-        *You can pay directly to this number via Bank Muscat Mobile Banking*
-      </p>
     </div>
   </section>
 
@@ -147,16 +150,18 @@
     © 2026 Elite Cement Products LLC. Muscat, Oman
   </footer>
 
-  <!-- WHATSAPP SCRIPT -->
   <script>
     document.getElementById('quoteForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
       let grade = document.getElementById('concrete_grade').value;
+      let rmc_qty = document.getElementById('rmc_qty').value;
       let cement = document.getElementById('cement_type').value;
       let name = document.getElementById('name').value;
-      let area = document.getElementById('area').value;
+      let location = document.getElementById('location').value;
+      let supply_date = document.getElementById('supply_date').value;
       let phone = document.getElementById('phone').value;
+      let message = document.getElementById('message').value;
       
       let blocks = [];
       document.querySelectorAll('input[name="blocks"]:checked').forEach((cb) => {
@@ -164,14 +169,14 @@
         blocks.push(cb.value + " Qty: " + qtyInput.value);
       });
       
-      if(!grade || !cement || !name || !area || !phone) {
+      if(!grade || !rmc_qty || !cement || !name || !location || !supply_date || !phone) {
         alert('Please fill all required fields');
         return;
       }
       
-      let message = `*Elite Cement - New Quote Request*%0A%0A*Concrete Grade:* ${grade}%0A*Cement Type:* ${cement}%0A*Blocks:* ${blocks.join(', ') || 'None'}%0A*Name:* ${name}%0A*Area:* ${area}%0A*Phone:* ${phone}`;
+      let wa_msg = `*Elite Cement - New Quote Request*%0A%0A*Concrete Grade:* ${grade}%0A*RMC Quantity:* ${rmc_qty}%0A*Cement Type:* ${cement}%0A*Blocks:* ${blocks.join(', ') || 'None'}%0A*Name:* ${name}%0A*Location:* ${location}%0A*Supply Date:* ${supply_date}%0A*Phone:* ${phone}%0A*Message:* ${message || 'None'}`;
       let whatsappNumber = "96894698496";
-      let url = `https://wa.me/${whatsappNumber}?text=${message}`;
+      let url = `https://wa.me/${whatsappNumber}?text=${wa_msg}`;
       
       window.open(url, '_blank');
     });
