@@ -11,19 +11,18 @@
         header h1 { font-size: 24px; margin-bottom: 5px; }
         nav { background: #0066cc; padding: 10px; text-align: center; }
         nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        .container { max-width: 1000px; margin: 20px auto; padding: 0 15px; }
-        .section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .section h2 { color: #004080; margin-bottom: 15px; border-bottom: 2px solid #0066cc; padding-bottom: 10px; }
-        .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .card { background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 4px solid #0066cc; text-align: center; }
-        .card h3 { color: #004080; margin-bottom: 10px; }
-        .card p { margin-bottom: 15px; font-size: 14px; }
-        .btn { display: inline-block; padding: 12px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; margin: 5px; border: none; cursor: pointer; font-size: 16px; }
-        .btn-green { background: #25D366; color: white; }
-        .btn-blue { background: #0066cc; color: white; }
+       .container { max-width: 1000px; margin: 20px auto; padding: 0 15px; }
+       .section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+       .section h2 { color: #004080; margin-bottom: 15px; border-bottom: 2px solid #0066cc; padding-bottom: 10px; }
+       .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+       .card { background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 4px solid #0066cc; text-align: center; }
+       .card h3 { color: #004080; margin-bottom: 10px; }
+       .btn { display: inline-block; padding: 12px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; margin: 5px; border: none; cursor: pointer; font-size: 16px; }
+       .btn-green { background: #25D366; color: white; }
+       .btn-blue { background: #0066cc; color: white; }
         input, select, textarea { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; }
+       .hidden { display: none; }
         footer { background: #00264d; color: white; text-align: center; padding: 20px; margin-top: 20px; }
-        .contact-info p { margin: 8px 0; }
     </style>
 </head>
 <body>
@@ -42,47 +41,23 @@
 </nav>
 
 <div class="container">
-    
+
     <div class="section" id="about">
         <h2>🏢 About Us</h2>
-        <p>Elite Cement Products is a leading supplier of high-quality building materials in Oman. 
-        We provide durable cement blocks, paving solutions, and ready-mix concrete for construction 
-        projects of all sizes. Committed to quality, fast delivery, and best service.</p>
+        <p>Elite Cement Products is a leading supplier of high-quality building materials in Oman.
+        We provide durable cement blocks, paving solutions, and ready-mix concrete for construction
+        projects of all sizes.</p>
     </div>
 
     <div class="section" id="products">
         <h2>📦 Our Products</h2>
         <div class="products">
-            <div class="card">
-                <h3>🧱 Building Blocks</h3>
-                <p>Standard cement blocks for walls and construction. 4", 6", 8" all sizes available.</p>
-                <a href="https://wa.me/96894698496?text=Hello, I want quote for Building Blocks" class="btn btn-green" target="_blank">Get Quote</a>
-            </div>
-            <div class="card">
-                <h3>🟦 Solid Blocks</h3>
-                <p>Heavy duty solid blocks for load bearing walls and foundations. Strong & durable.</p>
-                <a href="https://wa.me/96894698496?text=Hello, I want quote for Solid Blocks" class="btn btn-green" target="_blank">Get Quote</a>
-            </div>
-            <div class="card">
-                <h3>🕳️ Hollow Blocks</h3>
-                <p>Lightweight hollow blocks for better insulation and sound proofing.</p>
-                <a href="https://wa.me/96894698496?text=Hello, I want quote for Hollow Blocks" class="btn btn-green" target="_blank">Get Quote</a>
-            </div>
-            <div class="card">
-                <h3>🚗 Paving Blocks / Interlock</h3>
-                <p>Durable blocks for driveways, parking, and walkways. Many colors & designs.</p>
-                <a href="https://wa.me/96894698496?text=Hello, I want quote for Paving Blocks" class="btn btn-green" target="_blank">Get Quote</a>
-            </div>
-            <div class="card">
-                <h3>🛣️ Curb Stones</h3>
-                <p>Road and landscape curbing solutions. Strong and long lasting.</p>
-                <a href="https://wa.me/96894698496?text=Hello, I want quote for Curb Stones" class="btn btn-green" target="_blank">Get Quote</a>
-            </div>
-            <div class="card">
-                <h3>🚛 Ready-Mix Concrete</h3>
-                <p>High quality ready-mix concrete delivered to your site. All grades available.</p>
-                <a href="https://wa.me/96894698496?text=Hello, I want quote for Ready-Mix Concrete" class="btn btn-green" target="_blank">Get Quote</a>
-            </div>
+            <div class="card"><h3>🧱 Building Blocks</h3><p>4", 6", 8" all sizes</p></div>
+            <div class="card"><h3>🟦 Solid Blocks</h3><p>Heavy duty load bearing</p></div>
+            <div class="card"><h3>🕳️ Hollow Blocks</h3><p>6", 8" for insulation</p></div>
+            <div class="card"><h3>🚗 Paving Blocks</h3><p>Driveways & parking</p></div>
+            <div class="card"><h3>🛣️ Curb Stones</h3><p>Road & landscape</p></div>
+            <div class="card"><h3>🚛 Ready-Mix Concrete</h3><p>C15, C20, C25, C30</p></div>
         </div>
     </div>
 
@@ -92,6 +67,7 @@
             <input type="text" id="name" placeholder="Your Name" required>
             <input type="text" id="phone" placeholder="Phone with +968" required>
             <input type="text" id="company" placeholder="Company Name">
+
             <select id="product" required>
                 <option value="">Select Product</option>
                 <option value="Building Blocks">Building Blocks</option>
@@ -101,7 +77,14 @@
                 <option value="Curb Stones">Curb Stones</option>
                 <option value="Ready-Mix Concrete">Ready-Mix Concrete</option>
             </select>
-            <input type="text" id="quantity" placeholder="Quantity - Ex: 5000 pieces" required>
+
+            <div id="typeBox" class="hidden">
+                <select id="type">
+                    <option value="">Select Type/Grade</option>
+                </select>
+            </div>
+
+            <input type="text" id="quantity" placeholder="Quantity - Ex: 5000 pieces or 20 mtr" required>
             <input type="text" id="location" placeholder="Delivery Location in Oman - Ex: Al Khuwair" required>
             <textarea id="message" rows="3" placeholder="Project Details"></textarea>
             <button type="submit" class="btn btn-green">📱 Send via WhatsApp</button>
@@ -111,14 +94,11 @@
 
     <div class="section" id="contact">
         <h2>📞 Contact & Bank Details</h2>
-        <div class="contact-info">
-            <p><b>Owner:</b> Akram</p>
-            <p><b>Phone:</b> +968 9469 8496</p>
-            <p><b>Email:</b> akramncp123@gmail.com</p>
-            <p><b>Bank:</b> Bank Muscat</p>
-            <p><b>Account Name:</b> Ikram Ullah</p>
-            <p><b>Location:</b> Muscat, Sultanate of Oman</p>
-        </div>
+        <p><b>Owner:</b> Akram</p>
+        <p><b>Phone:</b> +968 9469 8496</p>
+        <p><b>Email:</b> akramncp123@gmail.com</p>
+        <p><b>Bank:</b> Bank Muscat - Ikram Ullah</p>
+        <p><b>Location:</b> Muscat, Sultanate of Oman</p>
     </div>
 
 </div>
@@ -128,30 +108,60 @@
 </footer>
 
 <script>
+    const productTypes = {
+        "Building Blocks": ["4 inch", "6 inch", "8 inch"],
+        "Solid Blocks": ["4 inch", "6 inch", "8 inch"],
+        "Hollow Blocks": ["6 inch", "8 inch"],
+        "Paving Blocks": ["60mm", "80mm", "Colored", "Grey"],
+        "Curb Stones": ["Standard", "Heavy Duty"],
+        "Ready-Mix Concrete": ["C15", "C20", "C25", "C30", "C35"]
+    };
+
+    document.getElementById('product').addEventListener('change', function() {
+        let product = this.value;
+        let typeBox = document.getElementById('typeBox');
+        let typeSelect = document.getElementById('type');
+
+        if(product && productTypes[product]) {
+            typeBox.classList.remove('hidden');
+            typeSelect.innerHTML = '<option value="">Select Type/Grade</option>';
+            productTypes[product].forEach(type => {
+                typeSelect.innerHTML += `<option value="${type}">${type}</option>`;
+            });
+        } else {
+            typeBox.classList.add('hidden');
+        }
+    });
+
     document.getElementById('quoteForm').addEventListener('submit', function(e) {
         e.preventDefault();
         let name = document.getElementById('name').value;
         let phone = document.getElementById('phone').value;
         let company = document.getElementById('company').value;
         let product = document.getElementById('product').value;
+        let type = document.getElementById('type').value;
         let quantity = document.getElementById('quantity').value;
         let location = document.getElementById('location').value;
         let message = document.getElementById('message').value;
         let waNumber = "96894698496";
-        let text = `Hello Elite Cement Products!%0A%0A*New Quote Request*%0AName: ${name}%0ACompany: ${company}%0APhone: ${phone}%0AProduct: ${product}%0AQuantity: ${quantity}%0ALocation: ${location}%0AMessage: ${message}`;
+        let productFull = type? `${product} - ${type}` : product;
+        let text = `Hello Elite Cement Products!%0A%0A*New Quote Request*%0AName: ${name}%0ACompany: ${company}%0APhone: ${phone}%0AProduct: ${productFull}%0AQuantity: ${quantity}%0ALocation: ${location}%0AMessage: ${message}`;
         window.open(`https://wa.me/${waNumber}?text=${text}`, '_blank');
     });
+
     function sendEmail() {
         let name = document.getElementById('name').value;
         let phone = document.getElementById('phone').value;
         let company = document.getElementById('company').value;
         let product = document.getElementById('product').value;
+        let type = document.getElementById('type').value;
         let quantity = document.getElementById('quantity').value;
         let location = document.getElementById('location').value;
         let message = document.getElementById('message').value;
         let email = "akramncp123@gmail.com";
+        let productFull = type? `${product} - ${type}` : product;
         let subject = "New Quote Request - Elite Cement Products";
-        let body = `Hello,%0A%0AName: ${name}%0ACompany: ${company}%0APhone: ${phone}%0AProduct: ${product}%0AQuantity: ${quantity}%0ALocation: ${location}%0AMessage: ${message}`;
+        let body = `Hello,%0A%0AName: ${name}%0ACompany: ${company}%0APhone: ${phone}%0AProduct: ${productFull}%0AQuantity: ${quantity}%0ALocation: ${location}%0AMessage: ${message}`;
         window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
     }
 </script>
