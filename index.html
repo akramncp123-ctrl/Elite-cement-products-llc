@@ -1,181 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Cement Products LLC - Concrete Blocks & Ready Mix Oman</title>
-<style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-    body{background:#f5f5f5;color:#333}
-    .container{max-width:1000px;margin:0 auto;padding:20px}
-    header{background:#C8102E;color:white;padding:18px 0;position:sticky;top:0;z-index:100}
-    .header-content{max-width:1200px;margin:0 auto;padding:0 20px;text-align:center}
-    .header-content h1{font-size:1.6rem;margin-bottom:5px}
-    .header-content p{font-size:0.9rem;opacity:0.9}
-    nav{margin-top:12px}
-    nav a{color:white;text-decoration:none;margin:0 12px;font-weight:bold;font-size:0.95rem}
-    nav a:hover{text-decoration:underline}
-    .hero{background:linear-gradient(rgba(200,16,46,0.9),rgba(200,16,46,0.9)),url('https://images.unsplash.com/photo-1541888943205-53385e373c71?q=80&w=1200') center/cover; color:white;text-align:center;padding:70px 20px}
-    .hero h1{font-size:2rem;margin-bottom:20px}
-    .btn{padding:14px 28px;border:none;border-radius:8px;font-size:17px;font-weight:bold;cursor:pointer;margin:8px;text-decoration:none;display:inline-block}
-    .btn-red{background:#8B0000;color:white}
-    .btn-green{background:#25D366;color:white}
-    .section{background:white;padding:35px 25px;margin:25px 0;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
-    .section-title{text-align:center;color:#C8102E;margin-bottom:25px;font-size:1.9rem}
-    .about-text{text-align:center;font-size:1.1rem;line-height:1.8;color:#555;max-width:800px;margin:0 auto}
-    .item{display:flex;align-items:center;justify-content:space-between;background:#f9f9f9;padding:16px;margin:12px 0;border:2px solid #eee;border-radius:8px}
-    .item label{font-size:16px;font-weight:500;display:flex;align-items:center;gap:10px}
-    .item input[type="checkbox"]{width:20px;height:20px}
-    .item input[type="number"]{width:100px;padding:8px;border:1px solid #ccc;border-radius:5px}
-    .form-group{margin-bottom:15px}
-    .form-group label{display:block;font-weight:bold;color:#003366;margin-bottom:8px}
-    .form-group input,.form-group textarea{width:100%;padding:12px;border:2px solid #ddd;border-radius:5px;font-size:16px}
-    .btn-whatsapp{width:100%;background:#25D366;color:white;padding:16px;border:none;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer;margin-top:10px}
-    .btn-email{width:100%;background:#C8102E;color:white;padding:16px;border:none;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer;margin-top:10px}
-    .bank-box{background:#e8f5e9;border-left:5px solid #25D366;padding:20px;border-radius:8px;margin-top:15px}
-    .bank-box h3{color:#003366;margin-bottom:10px}
-    .bank-box p{margin:8px 0;font-size:1rem}
-    footer{background:#1a1a1a;color:white;text-align:center;padding:20px;margin-top:30px}
-    @media(max-width:768px){nav a{margin:0 8px;font-size:0.85rem}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Cement Products LLC - Building Blocks & Hollow Blocks Oman</title>
+    <meta name="description" content="Elite Cement Products LLC - Manufacturer of Cement Blocks, Building Blocks, Hollow Blocks, and Concrete Products in Muscat, Oman. Best quality and price.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: #f5f5f5; color: #333; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); color: white; padding: 40px 20px; text-align: center; border-radius: 10px; margin-bottom: 30px; }
+        header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        header p { font-size: 1.2em; opacity: 0.9; }
+        .btn { display: inline-block; padding: 12px 25px; margin: 10px 5px; background: #27ae60; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .btn:hover { background: #219a52; transform: translateY(-2px); }
+        .btn-green { background: #25D366; }
+        .btn-green:hover { background: #20ba5a; }
+        .btn-blue { background: #3498db; }
+        .btn-blue:hover { background: #2980b9; }
+        .section { background: white; padding: 30px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .section h2 { color: #2c3e50; margin-bottom: 20px; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: #ecf0f1; padding: 20px; border-radius: 8px; border-left: 4px solid #3498db; }
+        .card h3 { color: #2c3e50; margin-bottom: 10px; }
+        .price { font-size: 1.5em; color: #27ae60; font-weight: bold; }
+        form { display: grid; gap: 15px; }
+        input, textarea, select { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 1em; }
+        input:focus, textarea:focus { border-color: #3498db; outline: none; }
+        footer { text-align: center; padding: 20px; color: #777; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>🏭 Elite Cement Products LLC</h1>
+            <p>Premium Quality Cement Blocks, Building Blocks & Hollow Blocks in Oman</p>
+            <a href="https://wa.me/96894698496" class="btn btn-green" target="_blank">📱 WhatsApp Us</a>
+            <a href="#quote" class="btn btn-blue">📝 Get Quote</a>
+        </header>
 
-<header>
-    <div class="header-content">
-        <h1>Elite Cement Products LLC</h1>
-        <p>Premium Cement, Blocks & Ready Mix in Oman</p>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#products">Products</a>
-            <a href="#quote">Get Quote</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </div>
-</header>
+        <div class="section">
+            <h2>🏢 About Us</h2>
+            <p>Elite Cement Products LLC is a leading manufacturer of high-quality cement blocks and concrete products in the Sultanate of Oman. We provide durable, affordable, and reliable building materials for residential and commercial projects across Muscat and all of Oman.</p>
+        </div>
 
-<section id="home" class="hero">
-    <h1>Premium Quality Cement & Building Materials for Your Projects</h1>
-    <a href="#quote" class="btn btn-red">Request Quote</a>
-    <a href="https://wa.me/96894698496" class="btn btn-green" target="_blank">WhatsApp Us</a>
-</section>
+        <div class="section">
+            <h2>📦 Our Products</h2>
+            <div class="products">
+                <div class="card">
+                    <h3>Building Blocks</h3>
+                    <p>Standard cement blocks for walls and construction</p>
+                    <p class="price">From OMR 0.180 / piece</p>
+                </div>
+                <div class="card">
+                    <h3>Hollow Blocks</h3>
+                    <p>Lightweight hollow blocks for better insulation</p>
+                    <p class="price">From OMR 0.220 / piece</p>
+                </div>
+                <div class="card">
+                    <h3>Paving Blocks</h3>
+                    <p>Durable blocks for driveways and walkways</p>
+                    <p class="price">From OMR 4.500 / sqm</p>
+                </div>
+                <div class="card">
+                    <h3>Curb Stones</h3>
+                    <p>Road and landscape curbing solutions</p>
+                    <p class="price">From OMR 2.000 / piece</p>
+                </div>
+            </div>
+        </div>
 
-<div class="container">
-
-<section id="about" class="section">
-    <h2 class="section-title">About Elite Cement</h2>
-    <p class="about-text">
-    Elite Cement Products LLC is a trusted name in Oman's construction industry. We provide high-quality cement, concrete, and building materials with on-time delivery and exceptional customer service to contractors and builders across the region.
-    </p>
-</section>
-
-<section id="products" class="section">
-    <h2 class="section-title">Ready Mix Concrete</h2>
-    <p style="text-align:center;margin-bottom:20px;color:#666">Select grade & quantity in Cubic Meters. All prices vary by location.</p>
-    
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C15"> Ready Mix C15</label><input type="number" name="qty_c15" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C20"> Ready Mix C20</label><input type="number" name="qty_c20" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C25"> Ready Mix C25</label><input type="number" name="qty_c25" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C30"> Ready Mix C30</label><input type="number" name="qty_c30" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C35"> Ready Mix C35</label><input type="number" name="qty_c35" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C40"> Ready Mix C40</label><input type="number" name="qty_c40" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C45"> Ready Mix C45</label><input type="number" name="qty_c45" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C50"> Ready Mix C50</label><input type="number" name="qty_c50" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Ready Mix C55"> Ready Mix C55</label><input type="number" name="qty_c55" placeholder="m3"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Pump Service Charge"> Pump Service Charge</label><input type="number" name="qty_pump" placeholder="Hours"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Mixer Transport Charges"> Mixer Transport Charges</label><input type="number" name="qty_mixer" placeholder="Trips"></div>
-</section>
-
-<section class="section">
-    <h2 class="section-title">Concrete Blocks</h2>
-    <p style="text-align:center;margin-bottom:20px;color:#666">Select type & quantity. Quote in 1 Hour. Prices vary by area.</p>
-    
-    <div class="item"><label><input type="checkbox" name="product" value="Solid block 4&quot;"> Solid block 4"</label><input type="number" name="qty_4solid" placeholder="Qty"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Solid block 8&quot;"> Solid block 8"</label><input type="number" name="qty_8solid" placeholder="Qty"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Hollow block 4&quot;"> Hollow block 4"</label><input type="number" name="qty_4hollow" placeholder="Qty"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Hollow block 6&quot;"> Hollow block 6"</label><input type="number" name="qty_6hollow" placeholder="Qty"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Hollow block 8&quot;"> Hollow block 8"</label><input type="number" name="qty_8hollow" placeholder="Qty"></div>
-    <div class="item"><label><input type="checkbox" name="product" value="Half block 20x20"> Half block 20x20</label><input type="number" name="qty_half" placeholder="Qty"></div>
-</section>
-
-<section id="quote" class="section">
-    <h2 class="section-title">Get Your Quote</h2>
-    <form id="quoteForm">
-        <div class="form-group"><label>Your Name *</label><input type="text" id="name" placeholder="Ex: Ahmed Al Balushi" required></div>
-        <div class="form-group"><label>Location / Site Address *</label><textarea id="address" rows="3" placeholder="Ex: Al Khuwair, Street 5" required></textarea></div>
-        <div class="form-group"><label>Supply Date *</label><input type="date" id="date" required></div>
-        <div class="form-group"><label>WhatsApp Number *</label><input type="tel" id="whatsapp" placeholder="00968 9XXXXXXX" required></div>
-        <div class="form-group"><label>Message</label><textarea id="message" rows="3"></textarea></div>
-        
-        <button type="button" class="btn-whatsapp" onclick="sendQuote()">Submit Quote Request via WhatsApp</button>
-        <button type="button" class="btn-email" onclick="sendEmail()">Send Quote Request via Email</button>
-    </form>
-</section>
-
-<section id="bank" class="section">
-    <h2 class="section-title">Bank Details</h2>
-    <div class="bank-box">
-        <h3>💳 For Payment After Quote Confirmation</h3>
-        <p><strong>Bank Name:</strong> Bank Muscat</p>
-        <p><strong>Account Name:</strong> Elite Cement Products LLC</p>
-        <p><strong>Account Number:</strong> 0XX-XXXXXX-XXX</p>
-        <p><strong>IBAN:</strong> OMXX XXXX XXXX XXXX XXXX XX</p>
-        <p><strong>SWIFT Code:</strong> BMUSOMRX</p>
-        <p style="margin-top:15px;color:#C8102E"><strong>Note:</strong> Please send payment receipt via WhatsApp after transfer</p>
-    </div>
-</section>
-
-<section id="contact" class="section">
-    <h2 class="section-title">Contact Us</h2>
-    <p style="text-align:center;font-size:1.1rem;line-height:2">
-        <strong>📧 Email:</strong> akramncp123@gmail.com<br>
-        <strong>📱 WhatsApp:</strong> +968 94698496<br>
-        <strong>📍 Location:</strong> Muscat, Oman
-    </p>
-</section>
-
-</div>
-
-<footer>
-    <p>&copy; 2026 Elite Cement Products LLC. All Rights Reserved.</p>
-</footer>
-
-<script>
-function sendQuote(){
-    let name = document.getElementById('name').value;
-    let address = document.getElementById('address').value;
-    let date = document.getElementById('date').value;
-    let whatsapp = document.getElementById('whatsapp').value;
-    let message = document.getElementById('message').value;
-    if(!name || !address || !date || !whatsapp){alert("Please fill all required fields *");return;}
-    let products = [];
-    document.querySelectorAll('input[name="product"]:checked').forEach((cb)=>{
-        let qty = cb.closest('.item').querySelector('input[type="number"]').value;
-        if(qty) products.push(cb.value + " - Qty: " + qty);
-    });
-    if(products.length === 0){alert("Please select at least 1 product");return;}
-    let quoteText = `*NEW QUOTE REQUEST - ELITE CEMENT*%0A%0A*Name:* ${name}%0A*Address:* ${address}%0A*Supply Date:* ${date}%0A*WhatsApp:* ${whatsapp}%0A*Products:*%0A${products.join('%0A')}%0A%0A*Message:* ${message}`;
-    let waNumber = "96894698496"; // <-- CHANGE TO YOUR WHATSAPP WITHOUT +
-    window.open(`https://wa.me/${waNumber}?text=${quoteText}`, '_blank');
-}
-function sendEmail(){
-    let name = document.getElementById('name').value;
-    let address = document.getElementById('address').value;
-    let date = document.getElementById('date').value;
-    let whatsapp = document.getElementById('whatsapp').value;
-    let message = document.getElementById('message').value;
-    if(!name || !address || !date || !whatsapp){alert("Please fill all required fields *");return;}
-    let products = [];
-    document.querySelectorAll('input[name="product"]:checked').forEach((cb)=>{
-        let qty = cb.closest('.item').querySelector('input[type="number"]').value;
-        if(qty) products.push(cb.value + " - Qty: " + qty);
-    });
-    let emailBody = `NEW QUOTE REQUEST - ELITE CEMENT\nName: ${name}\nAddress: ${address}\nSupply Date: ${date}\nWhatsApp: ${whatsapp}\nProducts:\n${products.join('\n')}\n\nMessage: ${message}`;
-    let email = "akramncp123@gmail.com"; // <-- CHANGE TO YOUR EMAIL
-    window.location.href = `mailto:${email}?subject=Quote Request from ${name}&body=${encodeURIComponent(emailBody)}`;
-}
-</script>
-
-</body>
-</html>
+        <div class="section" id="quote">
+            <h2>📝 Request a Quote</h2>
+            <form id="quoteForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="text" id="phone" placeholder="Your Phone Number" required>
+                <select id="product" required>
+                    <option value="">Select Product</option>
+                    <option value="Building Blocks">Building Blocks</option>
+                    <option value="Hollow Blocks">Hollow Blocks</option
